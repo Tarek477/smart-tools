@@ -26,48 +26,41 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 
 /* Navbar */
 .navbar { background: rgba(20, 21, 26, 0.85); backdrop-filter: blur(12px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
-.navbar .logo { font-size: 20px; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+.navbar .logo { font-size: 22px; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
 .navbar .logo span { color: var(--text); }
-.navbar .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 13px; margin-left: 15px; transition: 0.3s; }
+.navbar .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 15px; font-weight: 700; margin-left: 15px; transition: 0.3s; }
 .navbar .nav-links a:hover { color: var(--accent); }
 
 /* Hero */
 .hero { text-align: center; padding: 40px 20px 30px; }
-.hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+.hero h1 { font-size: 30px; font-weight: 900; margin-bottom: 10px; }
 .hero h1 span { color: var(--accent); }
-.hero p { color: var(--text-dim); font-size: 14px; max-width: 500px; margin: 0 auto; }
+.hero p { color: var(--text-dim); font-size: 16px; font-weight: 600; max-width: 500px; margin: 0 auto; }
 
 /* Container */
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 15px; }
 
-/* ========== Tools Grid with Rotating Border ========== */
+/* ========== Tools Grid ========== */
 .tools-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
     gap: 15px; 
     margin-bottom: 30px; 
 }
 
 .tool-card { 
     position: relative;
-    background: var(--card); 
-    border-radius: 14px; 
-    padding: 15px 8px; 
+    border-radius: 16px; 
+    padding: 3px; 
     text-align: center; 
     cursor: pointer; 
     transition: all 0.3s ease; 
     text-decoration: none; 
     color: var(--text); 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    min-height: 110px; 
     overflow: hidden;
-    z-index: 1;
+    background: transparent;
 }
 
-/* Rotating Red Light Border */
 .tool-card::before {
     content: '';
     position: absolute;
@@ -76,32 +69,14 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     width: 200%;
     height: 200%;
     background: conic-gradient(
-        transparent 0deg,
-        transparent 60deg,
-        #ff0033 90deg,
-        #ff6600 120deg,
-        #ffcc00 150deg,
-        #00cc66 180deg,
-        #3399ff 210deg,
-        #cc00ff 240deg,
-        transparent 270deg,
-        transparent 360deg
+        transparent 0deg, transparent 30deg,
+        #ff0033 60deg, #ff6600 90deg,
+        #ffcc00 120deg, #00cc66 150deg,
+        #3399ff 180deg, #cc00ff 210deg,
+        transparent 240deg, transparent 360deg
     );
-    animation: rotate-border 4s linear infinite;
-    z-index: -2;
-}
-
-/* Inner Card Background */
-.tool-card::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    background: var(--card);
-    border-radius: 12px;
-    z-index: -1;
+    animation: rotate-border 3s linear infinite;
+    z-index: 0;
 }
 
 @keyframes rotate-border {
@@ -109,16 +84,27 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     100% { transform: rotate(360deg); }
 }
 
-.tool-card:hover { 
-    transform: translateY(-4px); 
-    box-shadow: 0 0 25px var(--accent-glow), 0 0 50px rgba(255, 0, 51, 0.2);
+.tool-card .inner-box {
+    position: relative;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    z-index: 1;
 }
 
-.tool-card .icon { font-size: 30px; margin-bottom: 8px; display: block; position: relative; z-index: 1; }
-.tool-card h3 { font-size: 12px; font-weight: 600; position: relative; z-index: 1; line-height: 1.3; text-align: center; }
-.tool-card .num { position: absolute; top: 6px; left: 8px; font-size: 10px; color: var(--text-dim); font-weight: 600; opacity: 0.6; z-index: 1; }
+.tool-card:hover { transform: translateY(-4px); }
+.tool-card:hover .inner-box { background: #1a1d28; }
 
-/* ========== Tool Page with Box Frame ========== */
+.tool-card .icon { font-size: 34px; margin-bottom: 10px; display: block; }
+.tool-card h3 { font-size: 14px; font-weight: 800; line-height: 1.3; text-align: center; }
+.tool-card .num { position: absolute; top: 8px; left: 10px; font-size: 12px; color: var(--text-dim); font-weight: 800; opacity: 0.6; }
+
+/* ========== Tool Page ========== */
 .tool-page { display: none; }
 .tool-page.active { display: block; }
 
@@ -138,32 +124,30 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     background: var(--card); 
     border: 1px solid var(--border); 
     color: var(--text-dim); 
-    width: 40px; 
-    height: 40px; 
+    width: 42px; 
+    height: 42px; 
     border-radius: 10px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    font-size: 18px; 
+    font-size: 20px; 
+    font-weight: 800;
     cursor: pointer; 
     transition: 0.3s; 
     text-decoration: none; 
 }
 .tool-header .home-btn:hover { border-color: var(--accent); color: var(--accent); }
-.tool-header h2 { font-size: 22px; font-weight: 700; color: var(--text); text-align: center; }
+.tool-header h2 { font-size: 24px; font-weight: 900; color: var(--text); text-align: center; }
 .tool-header h2 span { color: var(--accent); }
 
-/* Tool Content Box - All content inside a box */
+/* Tool Content Box with Rotating Border */
 .tool-content-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 25px;
     position: relative;
+    border-radius: 16px;
+    padding: 3px;
     overflow: hidden;
 }
 
-/* Rotating Border for Tool Content Box */
 .tool-content-box::before {
     content: '';
     position: absolute;
@@ -172,43 +156,36 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     width: 200%;
     height: 200%;
     background: conic-gradient(
-        transparent 0deg,
-        transparent 60deg,
-        #ff0033 90deg,
-        #ff6600 120deg,
-        #ffcc00 150deg,
-        #00cc66 180deg,
-        #3399ff 210deg,
-        #cc00ff 240deg,
-        transparent 270deg,
-        transparent 360deg
+        transparent 0deg, transparent 30deg,
+        #ff0033 60deg, #ff6600 90deg,
+        #ffcc00 120deg, #00cc66 150deg,
+        #3399ff 180deg, #cc00ff 210deg,
+        transparent 240deg, transparent 360deg
     );
-    animation: rotate-border 4s linear infinite;
-    z-index: -2;
-}
-.tool-content-box::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    background: var(--card);
-    border-radius: 12px;
-    z-index: -1;
+    animation: rotate-border 3s linear infinite;
+    z-index: 0;
 }
 
-/* Form Elements - Centered */
-.form-group { margin-bottom: 16px; text-align: center; }
-.form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--text-dim); text-align: center; }
+.tool-content-box .inner-content {
+    position: relative;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 25px;
+    z-index: 1;
+}
+
+/* Form Elements - Centered & Bold */
+.form-group { margin-bottom: 18px; text-align: center; }
+.form-group label { display: block; font-size: 15px; font-weight: 800; margin-bottom: 8px; color: var(--text-dim); text-align: center; }
 .form-group input, .form-group textarea, .form-group select { 
     width: 100%; 
-    padding: 12px 15px; 
+    padding: 14px 18px; 
     background: var(--bg); 
     border: 2px solid var(--border); 
     border-radius: 10px; 
     color: var(--text); 
-    font-size: 15px; 
+    font-size: 17px; 
+    font-weight: 700;
     outline: none; 
     transition: 0.3s; 
     font-family: inherit; 
@@ -217,15 +194,15 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
 .form-group textarea { min-height: 120px; resize: vertical; text-align: left; }
 
-/* Button - Centered */
+/* Button - Centered & Bold */
 .btn { 
     background: var(--gradient); 
     color: #fff; 
     border: none; 
-    padding: 12px 28px; 
+    padding: 14px 32px; 
     border-radius: 10px; 
-    font-size: 15px; 
-    font-weight: 600; 
+    font-size: 17px; 
+    font-weight: 800; 
     cursor: pointer; 
     transition: 0.3s; 
     display: block; 
@@ -236,7 +213,7 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 .btn-secondary { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
 .btn-secondary:hover { background: var(--accent); color: #fff; }
 
-/* Result Box - Centered Content */
+/* Result Box - Bold & Centered */
 .result-box { 
     background: var(--bg); 
     border: 1px solid var(--border); 
@@ -248,31 +225,34 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 0; 
+    padding: 12px 0; 
     border-bottom: 1px solid var(--border); 
 }
 .result-box .result-item:last-child { border-bottom: none; }
-.result-box .result-label { color: var(--text-dim); font-size: 14px; }
-.result-box .result-value { font-weight: 700; font-size: 16px; color: var(--accent); }
+.result-box .result-label { color: var(--text-dim); font-size: 15px; font-weight: 700; }
+.result-box .result-value { font-weight: 900; font-size: 18px; color: var(--accent); }
 
 /* Footer */
 .footer { background: rgba(20, 21, 26, 0.7); backdrop-filter: blur(12px); padding: 30px 20px 20px; margin-top: 50px; border-top: 1px solid var(--border); text-align: center; }
-.footer .logo { font-size: 18px; font-weight: 900; color: var(--accent); margin-bottom: 10px; }
+.footer .logo { font-size: 20px; font-weight: 900; color: var(--accent); margin-bottom: 10px; }
 .footer .logo span { color: var(--text); }
-.footer p { font-size: 12px; color: var(--text-dim); max-width: 400px; margin: 0 auto 15px; }
-.footer .copyright { font-size: 11px; color: #555; border-top: 1px solid var(--border); padding-top: 12px; }
+.footer p { font-size: 14px; font-weight: 700; color: var(--text-dim); max-width: 400px; margin: 0 auto 15px; }
+.footer .copyright { font-size: 12px; font-weight: 700; color: #555; border-top: 1px solid var(--border); padding-top: 12px; }
 
 /* Responsive */
 @media (max-width: 600px) {
-    .hero h1 { font-size: 22px; }
-    .hero p { font-size: 13px; }
-    .tools-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
-    .tool-card { padding: 12px 5px; min-height: 100px; }
-    .tool-card .icon { font-size: 26px; }
-    .tool-card h3 { font-size: 11px; }
-    .tool-header h2 { font-size: 18px; }
-    .tool-header .home-btn { width: 35px; height: 35px; font-size: 16px; }
-    .tool-content-box { padding: 18px; }
+    .hero h1 { font-size: 24px; }
+    .hero p { font-size: 14px; }
+    .tools-grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
+    .tool-card .inner-box { padding: 14px 6px; min-height: 110px; }
+    .tool-card .icon { font-size: 28px; }
+    .tool-card h3 { font-size: 12px; }
+    .tool-header h2 { font-size: 20px; }
+    .tool-header .home-btn { width: 38px; height: 38px; font-size: 18px; }
+    .tool-content-box .inner-content { padding: 18px; }
+    .form-group label { font-size: 14px; }
+    .form-group input, .form-group textarea, .form-group select { font-size: 15px; }
+    .btn { font-size: 15px; padding: 12px 26px; }
 }
 </style>
 </head>
@@ -297,16 +277,16 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 
     <!-- Tools Grid -->
     <div class="tools-grid" id="toolsGrid">
-        <a class="tool-card" onclick="showTool('wordCounter')"><span class="num">1</span><span class="icon">📝</span><h3>Word Counter</h3></a>
-        <a class="tool-card" onclick="showTool('ageCalculator')"><span class="num">2</span><span class="icon">🎂</span><h3>Age Calculator</h3></a>
-        <a class="tool-card" onclick="showTool('bmiCalculator')"><span class="num">3</span><span class="icon">⚖️</span><h3>BMI Calculator</h3></a>
-        <a class="tool-card" onclick="showTool('percentageCalculator')"><span class="num">4</span><span class="icon">📊</span><h3>Percentage</h3></a>
-        <a class="tool-card" onclick="showTool('passwordGenerator')"><span class="num">5</span><span class="icon">🔐</span><h3>Password Gen</h3></a>
-        <a class="tool-card" onclick="showTool('qrGenerator')"><span class="num">6</span><span class="icon">📱</span><h3>QR Code Gen</h3></a>
-        <a class="tool-card" onclick="showTool('unitConverter')"><span class="num">7</span><span class="icon">📏</span><h3>Unit Converter</h3></a>
-        <a class="tool-card" onclick="showTool('loanCalculator')"><span class="num">8</span><span class="icon">💰</span><h3>Loan Calculator</h3></a>
-        <a class="tool-card" onclick="showTool('randomNumber')"><span class="num">9</span><span class="icon">🎲</span><h3>Random Num</h3></a>
-        <a class="tool-card" onclick="showTool('textCase')"><span class="num">10</span><span class="icon">🔤</span><h3>Text Case</h3></a>
+        <a class="tool-card" onclick="showTool('wordCounter')"><div class="inner-box"><span class="num">1</span><span class="icon">📝</span><h3>Word Counter</h3></div></a>
+        <a class="tool-card" onclick="showTool('ageCalculator')"><div class="inner-box"><span class="num">2</span><span class="icon">🎂</span><h3>Age Calculator</h3></div></a>
+        <a class="tool-card" onclick="showTool('bmiCalculator')"><div class="inner-box"><span class="num">3</span><span class="icon">⚖️</span><h3>BMI Calculator</h3></div></a>
+        <a class="tool-card" onclick="showTool('percentageCalculator')"><div class="inner-box"><span class="num">4</span><span class="icon">📊</span><h3>Percentage</h3></div></a>
+        <a class="tool-card" onclick="showTool('passwordGenerator')"><div class="inner-box"><span class="num">5</span><span class="icon">🔐</span><h3>Password Gen</h3></div></a>
+        <a class="tool-card" onclick="showTool('qrGenerator')"><div class="inner-box"><span class="num">6</span><span class="icon">📱</span><h3>QR Code Gen</h3></div></a>
+        <a class="tool-card" onclick="showTool('unitConverter')"><div class="inner-box"><span class="num">7</span><span class="icon">📏</span><h3>Unit Converter</h3></div></a>
+        <a class="tool-card" onclick="showTool('loanCalculator')"><div class="inner-box"><span class="num">8</span><span class="icon">💰</span><h3>Loan Calculator</h3></div></a>
+        <a class="tool-card" onclick="showTool('randomNumber')"><div class="inner-box"><span class="num">9</span><span class="icon">🎲</span><h3>Random Num</h3></div></a>
+        <a class="tool-card" onclick="showTool('textCase')"><div class="inner-box"><span class="num">10</span><span class="icon">🔤</span><h3>Text Case</h3></div></a>
     </div>
 
     <!-- Tool Pages -->
@@ -314,7 +294,7 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     <!-- 1. Word Counter -->
     <div class="tool-page" id="wordCounter">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📝 <span>Word Counter</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><textarea id="wcInput" placeholder="Type or paste your text here..." oninput="countWords()"></textarea></div>
             <div class="result-box">
                 <div class="result-item"><span class="result-label">Words</span><span class="result-value" id="wcWords">0</span></div>
@@ -324,13 +304,13 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
                 <div class="result-item"><span class="result-label">Paragraphs</span><span class="result-value" id="wcParagraphs">0</span></div>
                 <div class="result-item"><span class="result-label">Reading Time</span><span class="result-value" id="wcReadingTime">0 min</span></div>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 2. Age Calculator -->
     <div class="tool-page" id="ageCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🎂 <span>Age Calculator</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>Date of Birth</label><input type="date" id="dobInput"></div>
             <button class="btn" onclick="calculateAge()">Calculate Age</button>
             <div class="result-box" id="ageResult" style="display:none;">
@@ -340,13 +320,13 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
                 <div class="result-item"><span class="result-label">Total Hours</span><span class="result-value" id="ageHours">0</span></div>
                 <div class="result-item"><span class="result-label">Next Birthday In</span><span class="result-value" id="nextBirthday">0 days</span></div>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 3. BMI Calculator -->
     <div class="tool-page" id="bmiCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>⚖️ <span>BMI Calculator</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmiWeight" placeholder="e.g. 70"></div>
             <div class="form-group"><label>Height (cm)</label><input type="number" id="bmiHeight" placeholder="e.g. 175"></div>
             <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
@@ -354,23 +334,23 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
                 <div class="result-item"><span class="result-label">Your BMI</span><span class="result-value" id="bmiValue">0</span></div>
                 <div class="result-item"><span class="result-label">Category</span><span class="result-value" id="bmiCategory">-</span></div>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 4. Percentage Calculator -->
     <div class="tool-page" id="percentageCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📊 <span>Percentage Calculator</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>What is X% of Y?</label><input type="number" id="pctX" placeholder="X (percentage)" style="margin-bottom:8px;"><input type="number" id="pctY" placeholder="Y (number)"></div>
             <button class="btn" onclick="calculatePercentage()">Calculate</button>
             <div class="result-box" id="pctResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="pctValue">0</span></div></div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 5. Password Generator -->
     <div class="tool-page" id="passwordGenerator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🔐 <span>Password Generator</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>Password Length: <span id="pwdLengthLabel">16</span></label><input type="range" id="pwdLength" min="8" max="32" value="16" oninput="document.getElementById('pwdLengthLabel').textContent=this.value"></div>
             <div class="form-group">
                 <label><input type="checkbox" id="pwdUpper" checked> Uppercase (A-Z)</label><br>
@@ -381,37 +361,37 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
             <button class="btn" onclick="generatePassword()">Generate Password</button>
             <div class="result-box" id="pwdResult" style="display:none;">
                 <div class="result-item"><span class="result-label">Your Password</span></div>
-                <div style="background:var(--bg);padding:15px;border-radius:8px;margin-top:10px;word-break:break-all;font-family:monospace;font-size:16px;color:var(--accent);text-align:center;" id="pwdValue"></div>
+                <div style="background:var(--bg);padding:15px;border-radius:8px;margin-top:10px;word-break:break-all;font-family:monospace;font-size:18px;font-weight:800;color:var(--accent);text-align:center;" id="pwdValue"></div>
                 <button class="btn btn-secondary" style="margin-top:12px;" onclick="copyPwd()">📋 Copy Password</button>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 6. QR Code Generator -->
     <div class="tool-page" id="qrGenerator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📱 <span>QR Code Generator</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>Enter Text or URL</label><input type="text" id="qrInput" placeholder="https://example.com"></div>
             <button class="btn" onclick="generateQR()">Generate QR Code</button>
             <div class="result-box" id="qrResult" style="display:none;text-align:center;"><div id="qrImage"></div></div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 7. Unit Converter -->
     <div class="tool-page" id="unitConverter">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📏 <span>Unit Converter</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>Convert</label><select id="unitType" onchange="updateUnits()"><option value="length">Length</option><option value="weight">Weight</option></select></div>
             <div class="form-group"><input type="number" id="unitValue" placeholder="Enter value" style="margin-bottom:8px;"><select id="unitFrom" style="margin-bottom:8px;"></select><select id="unitTo"></select></div>
             <button class="btn" onclick="convertUnit()">Convert</button>
             <div class="result-box" id="unitResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="unitValueResult">0</span></div></div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 8. Loan Calculator -->
     <div class="tool-page" id="loanCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>💰 <span>Loan Calculator</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>Loan Amount (৳)</label><input type="number" id="loanAmount" placeholder="e.g. 100000"></div>
             <div class="form-group"><label>Interest Rate (% per year)</label><input type="number" id="loanRate" placeholder="e.g. 10"></div>
             <div class="form-group"><label>Loan Term (months)</label><input type="number" id="loanTerm" placeholder="e.g. 12"></div>
@@ -421,30 +401,30 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
                 <div class="result-item"><span class="result-label">Total Interest</span><span class="result-value" id="loanInterest">0</span></div>
                 <div class="result-item"><span class="result-label">Total Payment</span><span class="result-value" id="loanTotal">0</span></div>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 9. Random Number -->
     <div class="tool-page" id="randomNumber">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🎲 <span>Random Number Generator</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><label>Minimum</label><input type="number" id="randMin" value="1" style="margin-bottom:8px;"><label>Maximum</label><input type="number" id="randMax" value="100"></div>
             <button class="btn" onclick="generateRandom()">Generate</button>
             <div class="result-box" id="randResult" style="display:none;"><div class="result-item"><span class="result-label">Random Number</span><span class="result-value" id="randValue">0</span></div></div>
-        </div>
+        </div></div>
     </div>
 
     <!-- 10. Text Case Converter -->
     <div class="tool-page" id="textCase">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🔤 <span>Text Case Converter</span></h2></div>
-        <div class="tool-content-box">
+        <div class="tool-content-box"><div class="inner-content">
             <div class="form-group"><textarea id="caseInput" placeholder="Type or paste text here..."></textarea></div>
             <button class="btn" onclick="convertCase('upper')" style="margin-right:8px;">UPPERCASE</button>
             <button class="btn" onclick="convertCase('lower')" style="margin-right:8px;">lowercase</button>
             <button class="btn" onclick="convertCase('title')" style="margin-right:8px;">Title Case</button>
             <button class="btn" onclick="convertCase('sentence')" style="margin-right:8px;">Sentence case</button>
             <button class="btn btn-secondary" onclick="convertCase('clear')">Clear</button>
-        </div>
+        </div></div>
     </div>
 
 </div>
