@@ -4,47 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SmartTools BD - 10+ Free Online Tools & Calculators</title>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="Free online tools: Word Counter, Age Calculator, BMI Calculator, Password Generator, QR Code Generator, Percentage Calculator and more. 100% free, no login required.">
-<meta name="keywords" content="word counter, age calculator, bmi calculator, password generator, qr code generator, percentage calculator, loan calculator, unit converter, free online tools, bangla tools">
-<meta name="author" content="SmartTools BD">
+<meta name="description" content="Free online tools: Word Counter, Age Calculator, BMI Calculator, Password Generator, QR Code Generator and more.">
+<meta name="keywords" content="word counter, age calculator, bmi calculator, password generator, qr code generator, free online tools">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://Tarek477.github.io/stylish-name-generator/">
-
-<!-- Open Graph (Facebook) -->
-<meta property="og:title" content="SmartTools BD - Free Online Tools & Calculators">
-<meta property="og:description" content="10+ free online tools for everyday use. Word counter, age calculator, BMI, password generator and more.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://Tarek477.github.io/stylish-name-generator/">
-<meta property="og:image" content="https://Tarek477.github.io/stylish-name-generator/preview.png">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SmartTools BD - Free Online Tools & Calculators">
-<meta name="twitter:description" content="10+ free online tools for everyday use.">
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" href="/favicon.ico">
-
-<!-- Schema Markup for SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "SmartTools BD",
-  "url": "https://Tarek477.github.io/stylish-name-generator/",
-  "description": "Free online tools and calculators for everyday use.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://Tarek477.github.io/stylish-name-generator/?s={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
+<link rel="icon" href="/favicon.ico">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 :root {
@@ -67,7 +31,7 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 .navbar .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 13px; margin-left: 15px; transition: 0.3s; }
 .navbar .nav-links a:hover { color: var(--accent); }
 
-/* Hero (Only shown on home) */
+/* Hero */
 .hero { text-align: center; padding: 40px 20px 30px; }
 .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
 .hero h1 span { color: var(--accent); }
@@ -76,12 +40,17 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 /* Container */
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 15px; }
 
-/* Tools Grid - Choto Boxes with Different Colors */
-.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-bottom: 30px; }
+/* ========== Tools Grid with Rotating Border ========== */
+.tools-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); 
+    gap: 15px; 
+    margin-bottom: 30px; 
+}
 
 .tool-card { 
+    position: relative;
     background: var(--card); 
-    border: 1px solid var(--border); 
     border-radius: 14px; 
     padding: 15px 8px; 
     text-align: center; 
@@ -94,64 +63,194 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     align-items: center; 
     justify-content: center; 
     min-height: 110px; 
-    position: relative; 
     overflow: hidden;
-    animation: card-glow 2s infinite alternate;
+    z-index: 1;
 }
 
-/* Different Colors for Each Card */
-.tool-card:nth-child(1) { --glow-color: #ff0033; } /* Red */
-.tool-card:nth-child(2) { --glow-color: #ff6600; } /* Orange */
-.tool-card:nth-child(3) { --glow-color: #00cc66; } /* Green */
-.tool-card:nth-child(4) { --glow-color: #3399ff; } /* Blue */
-.tool-card:nth-child(5) { --glow-color: #cc00ff; } /* Purple */
-.tool-card:nth-child(6) { --glow-color: #ff0066; } /* Pink */
-.tool-card:nth-child(7) { --glow-color: #00cccc; } /* Cyan */
-.tool-card:nth-child(8) { --glow-color: #ffcc00; } /* Yellow */
-.tool-card:nth-child(9) { --glow-color: #ff3300; } /* Deep Orange */
-.tool-card:nth-child(10) { --glow-color: #6600ff; } /* Violet */
+/* Rotating Red Light Border */
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 60deg,
+        #ff0033 90deg,
+        #ff6600 120deg,
+        #ffcc00 150deg,
+        #00cc66 180deg,
+        #3399ff 210deg,
+        #cc00ff 240deg,
+        transparent 270deg,
+        transparent 360deg
+    );
+    animation: rotate-border 4s linear infinite;
+    z-index: -2;
+}
 
-@keyframes card-glow {
-    0% { box-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color); }
-    100% { box-shadow: 0 0 15px var(--glow-color), 0 0 25px var(--glow-color); }
+/* Inner Card Background */
+.tool-card::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: var(--card);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+@keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .tool-card:hover { 
-    border-color: var(--glow-color); 
     transform: translateY(-4px); 
-    box-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--glow-color);
-    animation: none;
+    box-shadow: 0 0 25px var(--accent-glow), 0 0 50px rgba(255, 0, 51, 0.2);
 }
 
-.tool-card .icon { font-size: 28px; margin-bottom: 8px; display: block; position: relative; z-index: 1; }
-.tool-card h3 { font-size: 12px; font-weight: 600; position: relative; z-index: 1; line-height: 1.3; }
-.tool-card .num { position: absolute; top: 6px; left: 8px; font-size: 10px; color: var(--text-dim); font-weight: 600; opacity: 0.6; }
+.tool-card .icon { font-size: 30px; margin-bottom: 8px; display: block; position: relative; z-index: 1; }
+.tool-card h3 { font-size: 12px; font-weight: 600; position: relative; z-index: 1; line-height: 1.3; text-align: center; }
+.tool-card .num { position: absolute; top: 6px; left: 8px; font-size: 10px; color: var(--text-dim); font-weight: 600; opacity: 0.6; z-index: 1; }
 
-/* Tool Page */
+/* ========== Tool Page with Box Frame ========== */
 .tool-page { display: none; }
 .tool-page.active { display: block; }
-.tool-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
-.tool-header .home-btn { background: var(--card); border: 1px solid var(--border); color: var(--text-dim); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; transition: 0.3s; text-decoration: none; }
+
+.tool-header { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-bottom: 25px; 
+    padding-bottom: 15px; 
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+.tool-header .home-btn { 
+    position: absolute; 
+    left: 0;
+    background: var(--card); 
+    border: 1px solid var(--border); 
+    color: var(--text-dim); 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 10px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 18px; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    text-decoration: none; 
+}
 .tool-header .home-btn:hover { border-color: var(--accent); color: var(--accent); }
-.tool-header h2 { font-size: 22px; font-weight: 700; color: var(--text); }
+.tool-header h2 { font-size: 22px; font-weight: 700; color: var(--text); text-align: center; }
 .tool-header h2 span { color: var(--accent); }
 
-/* Form Elements */
-.form-group { margin-bottom: 16px; }
-.form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--text-dim); }
-.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 15px; background: var(--bg); border: 2px solid var(--border); border-radius: 10px; color: var(--text); font-size: 15px; outline: none; transition: 0.3s; font-family: inherit; }
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
-.form-group textarea { min-height: 120px; resize: vertical; }
+/* Tool Content Box - All content inside a box */
+.tool-content-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
 
-/* Button */
-.btn { background: var(--gradient); color: #fff; border: none; padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; transition: 0.3s; display: inline-block; text-decoration: none; }
+/* Rotating Border for Tool Content Box */
+.tool-content-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 60deg,
+        #ff0033 90deg,
+        #ff6600 120deg,
+        #ffcc00 150deg,
+        #00cc66 180deg,
+        #3399ff 210deg,
+        #cc00ff 240deg,
+        transparent 270deg,
+        transparent 360deg
+    );
+    animation: rotate-border 4s linear infinite;
+    z-index: -2;
+}
+.tool-content-box::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: var(--card);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+/* Form Elements - Centered */
+.form-group { margin-bottom: 16px; text-align: center; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--text-dim); text-align: center; }
+.form-group input, .form-group textarea, .form-group select { 
+    width: 100%; 
+    padding: 12px 15px; 
+    background: var(--bg); 
+    border: 2px solid var(--border); 
+    border-radius: 10px; 
+    color: var(--text); 
+    font-size: 15px; 
+    outline: none; 
+    transition: 0.3s; 
+    font-family: inherit; 
+    text-align: center;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
+.form-group textarea { min-height: 120px; resize: vertical; text-align: left; }
+
+/* Button - Centered */
+.btn { 
+    background: var(--gradient); 
+    color: #fff; 
+    border: none; 
+    padding: 12px 28px; 
+    border-radius: 10px; 
+    font-size: 15px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    display: block; 
+    margin: 0 auto;
+    text-decoration: none; 
+}
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-glow); }
 .btn-secondary { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
 .btn-secondary:hover { background: var(--accent); color: #fff; }
 
-/* Result Box */
-.result-box { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 20px; }
-.result-box .result-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); }
+/* Result Box - Centered Content */
+.result-box { 
+    background: var(--bg); 
+    border: 1px solid var(--border); 
+    border-radius: 12px; 
+    padding: 20px; 
+    margin-top: 20px; 
+}
+.result-box .result-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 0; 
+    border-bottom: 1px solid var(--border); 
+}
 .result-box .result-item:last-child { border-bottom: none; }
 .result-box .result-label { color: var(--text-dim); font-size: 14px; }
 .result-box .result-value { font-weight: 700; font-size: 16px; color: var(--accent); }
@@ -167,12 +266,13 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 @media (max-width: 600px) {
     .hero h1 { font-size: 22px; }
     .hero p { font-size: 13px; }
-    .tools-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 8px; }
-    .tool-card { padding: 12px 5px; min-height: 95px; }
-    .tool-card .icon { font-size: 24px; }
+    .tools-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
+    .tool-card { padding: 12px 5px; min-height: 100px; }
+    .tool-card .icon { font-size: 26px; }
     .tool-card h3 { font-size: 11px; }
     .tool-header h2 { font-size: 18px; }
     .tool-header .home-btn { width: 35px; height: 35px; font-size: 16px; }
+    .tool-content-box { padding: 18px; }
 }
 </style>
 </head>
@@ -186,7 +286,7 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     </div>
 </nav>
 
-<!-- Hero (Only Home) -->
+<!-- Hero -->
 <div class="hero" id="heroSection">
     <h1>Free Online <span>Tools & Calculators</span></h1>
     <p>10+ free tools for everyday use. No login, no download, 100% free forever.</p>
@@ -214,117 +314,137 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     <!-- 1. Word Counter -->
     <div class="tool-page" id="wordCounter">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📝 <span>Word Counter</span></h2></div>
-        <div class="form-group"><textarea id="wcInput" placeholder="Type or paste your text here..." oninput="countWords()"></textarea></div>
-        <div class="result-box">
-            <div class="result-item"><span class="result-label">Words</span><span class="result-value" id="wcWords">0</span></div>
-            <div class="result-item"><span class="result-label">Characters (with spaces)</span><span class="result-value" id="wcChars">0</span></div>
-            <div class="result-item"><span class="result-label">Characters (without spaces)</span><span class="result-value" id="wcCharsNoSpace">0</span></div>
-            <div class="result-item"><span class="result-label">Sentences</span><span class="result-value" id="wcSentences">0</span></div>
-            <div class="result-item"><span class="result-label">Paragraphs</span><span class="result-value" id="wcParagraphs">0</span></div>
-            <div class="result-item"><span class="result-label">Reading Time</span><span class="result-value" id="wcReadingTime">0 min</span></div>
+        <div class="tool-content-box">
+            <div class="form-group"><textarea id="wcInput" placeholder="Type or paste your text here..." oninput="countWords()"></textarea></div>
+            <div class="result-box">
+                <div class="result-item"><span class="result-label">Words</span><span class="result-value" id="wcWords">0</span></div>
+                <div class="result-item"><span class="result-label">Characters (with spaces)</span><span class="result-value" id="wcChars">0</span></div>
+                <div class="result-item"><span class="result-label">Characters (without spaces)</span><span class="result-value" id="wcCharsNoSpace">0</span></div>
+                <div class="result-item"><span class="result-label">Sentences</span><span class="result-value" id="wcSentences">0</span></div>
+                <div class="result-item"><span class="result-label">Paragraphs</span><span class="result-value" id="wcParagraphs">0</span></div>
+                <div class="result-item"><span class="result-label">Reading Time</span><span class="result-value" id="wcReadingTime">0 min</span></div>
+            </div>
         </div>
     </div>
 
     <!-- 2. Age Calculator -->
     <div class="tool-page" id="ageCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🎂 <span>Age Calculator</span></h2></div>
-        <div class="form-group"><label>Date of Birth</label><input type="date" id="dobInput"></div>
-        <button class="btn" onclick="calculateAge()">Calculate Age</button>
-        <div class="result-box" id="ageResult" style="display:none;">
-            <div class="result-item"><span class="result-label">Your Age</span><span class="result-value" id="ageYears">0</span></div>
-            <div class="result-item"><span class="result-label">Total Months</span><span class="result-value" id="ageMonths">0</span></div>
-            <div class="result-item"><span class="result-label">Total Days</span><span class="result-value" id="ageDays">0</span></div>
-            <div class="result-item"><span class="result-label">Total Hours</span><span class="result-value" id="ageHours">0</span></div>
-            <div class="result-item"><span class="result-label">Next Birthday In</span><span class="result-value" id="nextBirthday">0 days</span></div>
+        <div class="tool-content-box">
+            <div class="form-group"><label>Date of Birth</label><input type="date" id="dobInput"></div>
+            <button class="btn" onclick="calculateAge()">Calculate Age</button>
+            <div class="result-box" id="ageResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Your Age</span><span class="result-value" id="ageYears">0</span></div>
+                <div class="result-item"><span class="result-label">Total Months</span><span class="result-value" id="ageMonths">0</span></div>
+                <div class="result-item"><span class="result-label">Total Days</span><span class="result-value" id="ageDays">0</span></div>
+                <div class="result-item"><span class="result-label">Total Hours</span><span class="result-value" id="ageHours">0</span></div>
+                <div class="result-item"><span class="result-label">Next Birthday In</span><span class="result-value" id="nextBirthday">0 days</span></div>
+            </div>
         </div>
     </div>
 
     <!-- 3. BMI Calculator -->
     <div class="tool-page" id="bmiCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>⚖️ <span>BMI Calculator</span></h2></div>
-        <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmiWeight" placeholder="e.g. 70"></div>
-        <div class="form-group"><label>Height (cm)</label><input type="number" id="bmiHeight" placeholder="e.g. 175"></div>
-        <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
-        <div class="result-box" id="bmiResult" style="display:none;">
-            <div class="result-item"><span class="result-label">Your BMI</span><span class="result-value" id="bmiValue">0</span></div>
-            <div class="result-item"><span class="result-label">Category</span><span class="result-value" id="bmiCategory">-</span></div>
+        <div class="tool-content-box">
+            <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmiWeight" placeholder="e.g. 70"></div>
+            <div class="form-group"><label>Height (cm)</label><input type="number" id="bmiHeight" placeholder="e.g. 175"></div>
+            <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
+            <div class="result-box" id="bmiResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Your BMI</span><span class="result-value" id="bmiValue">0</span></div>
+                <div class="result-item"><span class="result-label">Category</span><span class="result-value" id="bmiCategory">-</span></div>
+            </div>
         </div>
     </div>
 
     <!-- 4. Percentage Calculator -->
     <div class="tool-page" id="percentageCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📊 <span>Percentage Calculator</span></h2></div>
-        <div class="form-group"><label>What is X% of Y?</label><input type="number" id="pctX" placeholder="X (percentage)" style="margin-bottom:8px;"><input type="number" id="pctY" placeholder="Y (number)"></div>
-        <button class="btn" onclick="calculatePercentage()">Calculate</button>
-        <div class="result-box" id="pctResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="pctValue">0</span></div></div>
+        <div class="tool-content-box">
+            <div class="form-group"><label>What is X% of Y?</label><input type="number" id="pctX" placeholder="X (percentage)" style="margin-bottom:8px;"><input type="number" id="pctY" placeholder="Y (number)"></div>
+            <button class="btn" onclick="calculatePercentage()">Calculate</button>
+            <div class="result-box" id="pctResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="pctValue">0</span></div></div>
+        </div>
     </div>
 
     <!-- 5. Password Generator -->
     <div class="tool-page" id="passwordGenerator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🔐 <span>Password Generator</span></h2></div>
-        <div class="form-group"><label>Password Length: <span id="pwdLengthLabel">16</span></label><input type="range" id="pwdLength" min="8" max="32" value="16" oninput="document.getElementById('pwdLengthLabel').textContent=this.value"></div>
-        <div class="form-group">
-            <label><input type="checkbox" id="pwdUpper" checked> Uppercase (A-Z)</label><br>
-            <label><input type="checkbox" id="pwdLower" checked> Lowercase (a-z)</label><br>
-            <label><input type="checkbox" id="pwdNumber" checked> Numbers (0-9)</label><br>
-            <label><input type="checkbox" id="pwdSymbol" checked> Symbols (!@#$)</label>
-        </div>
-        <button class="btn" onclick="generatePassword()">Generate Password</button>
-        <div class="result-box" id="pwdResult" style="display:none;">
-            <div class="result-item"><span class="result-label">Your Password</span></div>
-            <div style="background:var(--bg);padding:15px;border-radius:8px;margin-top:10px;word-break:break-all;font-family:monospace;font-size:16px;color:var(--accent);" id="pwdValue"></div>
-            <button class="btn btn-secondary" style="margin-top:12px;" onclick="copyPwd()">📋 Copy Password</button>
+        <div class="tool-content-box">
+            <div class="form-group"><label>Password Length: <span id="pwdLengthLabel">16</span></label><input type="range" id="pwdLength" min="8" max="32" value="16" oninput="document.getElementById('pwdLengthLabel').textContent=this.value"></div>
+            <div class="form-group">
+                <label><input type="checkbox" id="pwdUpper" checked> Uppercase (A-Z)</label><br>
+                <label><input type="checkbox" id="pwdLower" checked> Lowercase (a-z)</label><br>
+                <label><input type="checkbox" id="pwdNumber" checked> Numbers (0-9)</label><br>
+                <label><input type="checkbox" id="pwdSymbol" checked> Symbols (!@#$)</label>
+            </div>
+            <button class="btn" onclick="generatePassword()">Generate Password</button>
+            <div class="result-box" id="pwdResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Your Password</span></div>
+                <div style="background:var(--bg);padding:15px;border-radius:8px;margin-top:10px;word-break:break-all;font-family:monospace;font-size:16px;color:var(--accent);text-align:center;" id="pwdValue"></div>
+                <button class="btn btn-secondary" style="margin-top:12px;" onclick="copyPwd()">📋 Copy Password</button>
+            </div>
         </div>
     </div>
 
     <!-- 6. QR Code Generator -->
     <div class="tool-page" id="qrGenerator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📱 <span>QR Code Generator</span></h2></div>
-        <div class="form-group"><label>Enter Text or URL</label><input type="text" id="qrInput" placeholder="https://example.com"></div>
-        <button class="btn" onclick="generateQR()">Generate QR Code</button>
-        <div class="result-box" id="qrResult" style="display:none;text-align:center;"><div id="qrImage"></div></div>
+        <div class="tool-content-box">
+            <div class="form-group"><label>Enter Text or URL</label><input type="text" id="qrInput" placeholder="https://example.com"></div>
+            <button class="btn" onclick="generateQR()">Generate QR Code</button>
+            <div class="result-box" id="qrResult" style="display:none;text-align:center;"><div id="qrImage"></div></div>
+        </div>
     </div>
 
     <!-- 7. Unit Converter -->
     <div class="tool-page" id="unitConverter">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📏 <span>Unit Converter</span></h2></div>
-        <div class="form-group"><label>Convert</label><select id="unitType" onchange="updateUnits()"><option value="length">Length</option><option value="weight">Weight</option></select></div>
-        <div class="form-group"><input type="number" id="unitValue" placeholder="Enter value" style="margin-bottom:8px;"><select id="unitFrom" style="margin-bottom:8px;"></select><select id="unitTo"></select></div>
-        <button class="btn" onclick="convertUnit()">Convert</button>
-        <div class="result-box" id="unitResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="unitValueResult">0</span></div></div>
+        <div class="tool-content-box">
+            <div class="form-group"><label>Convert</label><select id="unitType" onchange="updateUnits()"><option value="length">Length</option><option value="weight">Weight</option></select></div>
+            <div class="form-group"><input type="number" id="unitValue" placeholder="Enter value" style="margin-bottom:8px;"><select id="unitFrom" style="margin-bottom:8px;"></select><select id="unitTo"></select></div>
+            <button class="btn" onclick="convertUnit()">Convert</button>
+            <div class="result-box" id="unitResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="unitValueResult">0</span></div></div>
+        </div>
     </div>
 
     <!-- 8. Loan Calculator -->
     <div class="tool-page" id="loanCalculator">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>💰 <span>Loan Calculator</span></h2></div>
-        <div class="form-group"><label>Loan Amount (৳)</label><input type="number" id="loanAmount" placeholder="e.g. 100000"></div>
-        <div class="form-group"><label>Interest Rate (% per year)</label><input type="number" id="loanRate" placeholder="e.g. 10"></div>
-        <div class="form-group"><label>Loan Term (months)</label><input type="number" id="loanTerm" placeholder="e.g. 12"></div>
-        <button class="btn" onclick="calculateLoan()">Calculate EMI</button>
-        <div class="result-box" id="loanResult" style="display:none;">
-            <div class="result-item"><span class="result-label">Monthly EMI</span><span class="result-value" id="loanEMI">0</span></div>
-            <div class="result-item"><span class="result-label">Total Interest</span><span class="result-value" id="loanInterest">0</span></div>
-            <div class="result-item"><span class="result-label">Total Payment</span><span class="result-value" id="loanTotal">0</span></div>
+        <div class="tool-content-box">
+            <div class="form-group"><label>Loan Amount (৳)</label><input type="number" id="loanAmount" placeholder="e.g. 100000"></div>
+            <div class="form-group"><label>Interest Rate (% per year)</label><input type="number" id="loanRate" placeholder="e.g. 10"></div>
+            <div class="form-group"><label>Loan Term (months)</label><input type="number" id="loanTerm" placeholder="e.g. 12"></div>
+            <button class="btn" onclick="calculateLoan()">Calculate EMI</button>
+            <div class="result-box" id="loanResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Monthly EMI</span><span class="result-value" id="loanEMI">0</span></div>
+                <div class="result-item"><span class="result-label">Total Interest</span><span class="result-value" id="loanInterest">0</span></div>
+                <div class="result-item"><span class="result-label">Total Payment</span><span class="result-value" id="loanTotal">0</span></div>
+            </div>
         </div>
     </div>
 
     <!-- 9. Random Number -->
     <div class="tool-page" id="randomNumber">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🎲 <span>Random Number Generator</span></h2></div>
-        <div class="form-group"><label>Minimum</label><input type="number" id="randMin" value="1" style="margin-bottom:8px;"><label>Maximum</label><input type="number" id="randMax" value="100"></div>
-        <button class="btn" onclick="generateRandom()">Generate</button>
-        <div class="result-box" id="randResult" style="display:none;"><div class="result-item"><span class="result-label">Random Number</span><span class="result-value" id="randValue">0</span></div></div>
+        <div class="tool-content-box">
+            <div class="form-group"><label>Minimum</label><input type="number" id="randMin" value="1" style="margin-bottom:8px;"><label>Maximum</label><input type="number" id="randMax" value="100"></div>
+            <button class="btn" onclick="generateRandom()">Generate</button>
+            <div class="result-box" id="randResult" style="display:none;"><div class="result-item"><span class="result-label">Random Number</span><span class="result-value" id="randValue">0</span></div></div>
+        </div>
     </div>
 
     <!-- 10. Text Case Converter -->
     <div class="tool-page" id="textCase">
         <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🔤 <span>Text Case Converter</span></h2></div>
-        <div class="form-group"><textarea id="caseInput" placeholder="Type or paste text here..."></textarea></div>
-        <button class="btn" onclick="convertCase('upper')" style="margin-right:8px;">UPPERCASE</button>
-        <button class="btn" onclick="convertCase('lower')" style="margin-right:8px;">lowercase</button>
-        <button class="btn" onclick="convertCase('title')" style="margin-right:8px;">Title Case</button>
-        <button class="btn" onclick="convertCase('sentence')" style="margin-right:8px;">Sentence case</button>
-        <button class="btn btn-secondary" onclick="convertCase('clear')">Clear</button>
+        <div class="tool-content-box">
+            <div class="form-group"><textarea id="caseInput" placeholder="Type or paste text here..."></textarea></div>
+            <button class="btn" onclick="convertCase('upper')" style="margin-right:8px;">UPPERCASE</button>
+            <button class="btn" onclick="convertCase('lower')" style="margin-right:8px;">lowercase</button>
+            <button class="btn" onclick="convertCase('title')" style="margin-right:8px;">Title Case</button>
+            <button class="btn" onclick="convertCase('sentence')" style="margin-right:8px;">Sentence case</button>
+            <button class="btn btn-secondary" onclick="convertCase('clear')">Clear</button>
+        </div>
     </div>
 
 </div>
