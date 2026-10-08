@@ -3,16 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartTools BD - Free Online Tools & Calculators</title>
-<meta name="description" content="Free online tools: Word Counter, Age Calculator, BMI Calculator, Password Generator, QR Code Generator and more.">
-<link rel="icon" href="/favicon.ico">
+<title>SmartTools BD - 10+ Free Online Tools & Calculators</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Free online tools: Word Counter, Age Calculator, BMI Calculator, Password Generator, QR Code Generator, Percentage Calculator and more. 100% free, no login required.">
+<meta name="keywords" content="word counter, age calculator, bmi calculator, password generator, qr code generator, percentage calculator, loan calculator, unit converter, free online tools, bangla tools">
+<meta name="author" content="SmartTools BD">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://Tarek477.github.io/stylish-name-generator/">
+
+<!-- Open Graph (Facebook) -->
+<meta property="og:title" content="SmartTools BD - Free Online Tools & Calculators">
+<meta property="og:description" content="10+ free online tools for everyday use. Word counter, age calculator, BMI, password generator and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://Tarek477.github.io/stylish-name-generator/">
+<meta property="og:image" content="https://Tarek477.github.io/stylish-name-generator/preview.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SmartTools BD - Free Online Tools & Calculators">
+<meta name="twitter:description" content="10+ free online tools for everyday use.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+<!-- Schema Markup for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SmartTools BD",
+  "url": "https://Tarek477.github.io/stylish-name-generator/",
+  "description": "Free online tools and calculators for everyday use.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://Tarek477.github.io/stylish-name-generator/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 :root {
     --bg: #08080c;
     --bg-gradient: radial-gradient(circle at top, #1a0a12 0%, #08080c 60%);
     --card: #12141c;
-    --card-hover: #1a1d28;
     --border: #252833;
     --accent: #ff0033;
     --accent-glow: rgba(255, 0, 51, 0.4);
@@ -29,7 +67,7 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 .navbar .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 13px; margin-left: 15px; transition: 0.3s; }
 .navbar .nav-links a:hover { color: var(--accent); }
 
-/* Hero */
+/* Hero (Only shown on home) */
 .hero { text-align: center; padding: 40px 20px 30px; }
 .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
 .hero h1 span { color: var(--accent); }
@@ -38,12 +76,37 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 /* Container */
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 15px; }
 
-/* Tools Grid - Choto Boxes */
+/* Tools Grid - Choto Boxes with Glow */
 .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-bottom: 30px; }
-.tool-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 15px 8px; text-align: center; cursor: pointer; transition: all 0.3s ease; text-decoration: none; color: var(--text); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; position: relative; overflow: hidden; }
-.tool-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient); opacity: 0; transition: 0.3s; }
-.tool-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 20px var(--accent-glow); }
-.tool-card:hover::before { opacity: 0.1; }
+.tool-card { 
+    background: var(--card); 
+    border: 1px solid var(--border); 
+    border-radius: 14px; 
+    padding: 15px 8px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    text-decoration: none; 
+    color: var(--text); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 110px; 
+    position: relative; 
+    overflow: hidden;
+    animation: red-glow 2s infinite alternate;
+}
+@keyframes red-glow {
+    0% { box-shadow: 0 0 5px rgba(255, 0, 51, 0.2), 0 0 10px rgba(255, 0, 51, 0.1); }
+    100% { box-shadow: 0 0 15px rgba(255, 0, 51, 0.5), 0 0 25px rgba(255, 0, 51, 0.3); }
+}
+.tool-card:hover { 
+    border-color: var(--accent); 
+    transform: translateY(-4px); 
+    box-shadow: 0 0 25px var(--accent-glow), 0 0 40px rgba(255, 0, 51, 0.3);
+    animation: none;
+}
 .tool-card .icon { font-size: 28px; margin-bottom: 8px; display: block; position: relative; z-index: 1; }
 .tool-card h3 { font-size: 12px; font-weight: 600; position: relative; z-index: 1; line-height: 1.3; }
 .tool-card .num { position: absolute; top: 6px; left: 8px; font-size: 10px; color: var(--text-dim); font-weight: 600; opacity: 0.6; }
@@ -84,9 +147,6 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
 .footer p { font-size: 12px; color: var(--text-dim); max-width: 400px; margin: 0 auto 15px; }
 .footer .copyright { font-size: 11px; color: #555; border-top: 1px solid var(--border); padding-top: 12px; }
 
-/* Ad Space */
-.ad-space { background: var(--card); border: 1px dashed var(--border); border-radius: 12px; padding: 15px; text-align: center; color: var(--text-dim); font-size: 12px; margin: 20px 0; }
-
 /* Responsive */
 @media (max-width: 600px) {
     .hero h1 { font-size: 22px; }
@@ -107,12 +167,11 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
     <div class="logo">Smart<span>Tools</span></div>
     <div class="nav-links">
         <a href="#tools">Tools</a>
-        <a href="#about">About</a>
     </div>
 </nav>
 
-<!-- Hero -->
-<div class="hero">
+<!-- Hero (Only Home) -->
+<div class="hero" id="heroSection">
     <h1>Free Online <span>Tools & Calculators</span></h1>
     <p>10+ free tools for everyday use. No login, no download, 100% free forever.</p>
 </div>
@@ -134,17 +193,11 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
         <a class="tool-card" onclick="showTool('textCase')"><span class="num">10</span><span class="icon">🔤</span><h3>Text Case</h3></a>
     </div>
 
-    <!-- Ad Space -->
-    <div class="ad-space" id="adSpace1">📢 Advertisement Space (AdSense Code Here)</div>
-
     <!-- Tool Pages -->
 
     <!-- 1. Word Counter -->
     <div class="tool-page" id="wordCounter">
-        <div class="tool-header">
-            <a class="home-btn" onclick="backToTools()">←</a>
-            <h2>📝 <span>Word Counter</span></h2>
-        </div>
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📝 <span>Word Counter</span></h2></div>
         <div class="form-group"><textarea id="wcInput" placeholder="Type or paste your text here..." oninput="countWords()"></textarea></div>
         <div class="result-box">
             <div class="result-item"><span class="result-label">Words</span><span class="result-value" id="wcWords">0</span></div>
@@ -258,9 +311,6 @@ body { background: var(--bg); background-image: var(--bg-gradient); color: var(-
         <button class="btn btn-secondary" onclick="convertCase('clear')">Clear</button>
     </div>
 
-    <!-- Ad Space 2 -->
-    <div class="ad-space" id="adSpace2">📢 Advertisement Space (AdSense Code Here)</div>
-
 </div>
 
 <!-- Footer -->
@@ -276,14 +326,14 @@ function showTool(id) {
     document.querySelectorAll('.tool-page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     document.getElementById('toolsGrid').style.display = 'none';
-    document.getElementById('adSpace1').style.display = 'none';
+    document.getElementById('heroSection').style.display = 'none'; // Hero Hide
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function backToTools() {
     document.querySelectorAll('.tool-page').forEach(p => p.classList.remove('active'));
     document.getElementById('toolsGrid').style.display = 'grid';
-    document.getElementById('adSpace1').style.display = 'block';
+    document.getElementById('heroSection').style.display = 'block'; // Hero Show
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
@@ -442,4 +492,4 @@ updateUnits();
 </script>
 
 </body>
-</html
+</html>
