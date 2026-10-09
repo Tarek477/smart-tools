@@ -10,7 +10,7 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://smart-tools.cyou/">
 <meta property="og:title" content="SmartTools - Free Online Tools & Calculators">
-<meta property="og:description" content="10+ free online tools: word counter, age calculator, BMI, password generator, QR code generator, loan calculator and more. No login needed.">
+<meta property="og:description" content="10+ free online tools for everyday use. No login needed.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://smart-tools.cyou/">
 <meta name="twitter:card" content="summary_large_image">
@@ -43,20 +43,97 @@ h2{font-size:19px;margin:20px 0 6px;font-weight:800}
 footer{text-align:center;padding:30px 16px;margin-top:40px;border-top:1px solid var(--bd);background:rgba(20,21,26,.7)}
 footer p{margin:8px 0;color:var(--dim)}footer small{color:#777}
 
-/* Rotating Glow Animation */
-@keyframes spin{to{transform:rotate(360deg)}}
-.card,.box{position:relative;overflow:hidden;border-radius:13px;padding:3px;background:transparent}
-.card::before,.box::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(transparent 0deg,transparent 30deg,#ff0033 60deg,#ff6600 90deg,#ffcc00 120deg,#00cc66 150deg,#3399ff 180deg,#cc00ff 210deg,transparent 240deg,transparent 360deg);animation:spin 3s linear infinite;z-index:0}
-.card>.in,.box>.in{position:relative;z-index:1;background:var(--card);border-radius:10px}
-.card>.in{padding:18px 12px;text-align:center;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:130px}
-.box>.in{padding:22px}
-.card{display:block;text-decoration:none;color:var(--tx);transition:transform .25s}
-.card:hover{transform:translateY(-4px)}
-.card i{font-style:normal;font-size:34px;display:block;margin-bottom:8px}
-.card h3{font-size:15px;margin:4px 0 2px;font-weight:900}
-.card p{color:var(--dim);font-size:12px;font-weight:600}
+/* ===== Rotating RGB Light Animation ===== */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
-/* Form Elements */
+.card, .box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    padding: 3px;
+    background: transparent;
+    transition: transform 0.3s ease;
+}
+
+.card::before, .box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 30deg,
+        #ff0033 60deg,
+        #ff6600 90deg,
+        #ffcc00 120deg,
+        #00cc66 150deg,
+        #3399ff 180deg,
+        #cc00ff 210deg,
+        transparent 240deg,
+        transparent 360deg
+    );
+    animation: spin 3s linear infinite;
+    z-index: 0;
+}
+
+.card > .in, .box > .in {
+    position: relative;
+    z-index: 1;
+    background: var(--card);
+    border-radius: 11px;
+}
+
+.card > .in {
+    padding: 18px 12px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 130px;
+}
+
+.box > .in {
+    padding: 22px;
+}
+
+.card {
+    display: block;
+    text-decoration: none;
+    color: var(--tx);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.4);
+}
+
+.card i {
+    font-style: normal;
+    font-size: 34px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.card h3 {
+    font-size: 15px;
+    margin: 4px 0 2px;
+    font-weight: 900;
+}
+
+.card p {
+    color: var(--dim);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ===== Form Elements ===== */
 .fg{margin-bottom:16px}
 label{display:block;font-weight:800;color:var(--dim);margin-bottom:6px;font-size:15px}
 input,textarea,select{width:100%;padding:13px 15px;background:var(--bg);border:2px solid var(--bd);border-radius:10px;color:var(--tx);font-size:16px;font-weight:700;font-family:inherit;text-align:center}
@@ -67,7 +144,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
 .chk{margin-bottom:16px;text-align:center}
 .chk label{color:var(--tx);font-weight:700;display:block;margin-bottom:8px}
 
-/* Button */
+/* ===== Button ===== */
 .btn{background:linear-gradient(135deg,#ff0033,#b30024);color:#fff;border:2px solid transparent;border-radius:10px;padding:13px 28px;font-size:16px;font-weight:900;cursor:pointer;display:block;margin:0 auto}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px var(--glow)}
 .btn2{background:transparent;border-color:var(--ac);color:var(--ac)}
@@ -75,7 +152,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
 .row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .row .btn{margin:0;padding:10px 16px;font-size:14px}
 
-/* Result Box */
+/* ===== Result Box ===== */
 .res{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:6px 16px;margin-top:18px}
 .res[hidden]{display:none}
 .ri{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--bd)}
@@ -107,7 +184,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
 
 <main class="wrap">
 
-<!-- HOME VIEW -->
+<!-- HOME -->
 <section class="view" id="v-home">
   <div class="hero">
     <h1>Free online tools and calculators</h1>
