@@ -43,33 +43,25 @@ h2{font-size:19px;margin:20px 0 6px;font-weight:800}
 footer{text-align:center;padding:30px 16px;margin-top:40px;border-top:1px solid var(--bd);background:rgba(20,21,26,.7)}
 footer p{margin:8px 0;color:var(--dim)}footer small{color:#777}
 
-/* ===== Rotating RGB Light Frame ===== */
-@keyframes rgb-rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* ===== ROTATING RGB BORDER (Working Version) ===== */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
 }
 
-/* Container for the card (holds the rotating light and the inner box) */
+@keyframes rgb-border {
+    to {
+        --angle: 360deg;
+    }
+}
+
 .card-wrapper, .box-wrapper {
     position: relative;
     border-radius: 16px;
-    overflow: hidden;
-    background: transparent;
     padding: 3px;
-    isolation: isolate;
-}
-
-/* The rotating light ring */
-.card-wrapper::before, .box-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%; /* larger than the card to ensure it covers the whole frame when rotating */
-    height: 150%;
-    margin-top: -75%;
-    margin-left: -75%;
     background: conic-gradient(
+        from var(--angle),
         #ff0033,
         #ff6600,
         #ffcc00,
@@ -78,16 +70,14 @@ footer p{margin:8px 0;color:var(--dim)}footer small{color:#777}
         #cc00ff,
         #ff0033
     );
-    animation: rgb-rotate 3s linear infinite;
-    z-index: 0;
+    animation: rgb-border 3s linear infinite;
 }
 
-/* The inner content box that sits on top of the light */
 .card-inner, .box-inner {
-    position: relative;
-    z-index: 1;
     background: var(--card);
     border-radius: 13px;
+    position: relative;
+    z-index: 1;
     height: 100%;
 }
 
@@ -174,7 +164,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   .card i{font-size:28px}
   .card h3{font-size:13px}
 }
-@media(prefers-reduced-motion:reduce){.card-wrapper::before,.box-wrapper::before{animation:none}}
+@media(prefers-reduced-motion:reduce){.card-wrapper,.box-wrapper{animation:none}}
 </style>
 </head>
 <body>
@@ -554,7 +544,6 @@ e.value=k=='upper'?t.toUpperCase():k=='lower'?t.toLowerCase():k=='title'?t.toLow
 
 if($('unitType'))updateUnits();
 
-/* SPA Routing + SEO Meta Update */
 const META={
 "v-home":["SmartTools - Free Online Tools & Calculators","10+ free online tools: word counter, age calculator, BMI, password generator, QR code generator, loan calculator and more. No login needed."],
 "v-word-counter":["Word Counter - Free Online | SmartTools","Count words, characters, sentences and reading time instantly. Free, no login."],
