@@ -2,570 +2,543 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SmartTools - Free Online Tools & Calculators</title>
-<meta name="description" content="10+ free online tools: word counter, age calculator, BMI, password generator, QR code generator, loan calculator and more. No login needed.">
-<meta name="keywords" content="word counter, age calculator, bmi calculator, password generator, qr code generator, percentage calculator, loan calculator, unit converter, free online tools">
-<meta name="author" content="SmartTools">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smart-tools.cyou/">
-<meta property="og:title" content="SmartTools - Free Online Tools & Calculators">
-<meta property="og:description" content="10+ free online tools for everyday use. No login needed.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://smart-tools.cyou/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SmartTools - Free Online Tools & Calculators">
-<meta name="twitter:description" content="10+ free online tools for everyday use.">
+
+<!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="shortcut icon" href="/favicon.ico">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SmartTools", "url": "https://smart-tools.cyou/"}</script>
-<style>
-:root{--bg:#08080c;--card:#12141c;--bd:#252833;--ac:#ff0033;--tx:#fff;--dim:#9b9fb3;--glow:rgba(255,0,51,.4)}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:radial-gradient(circle at top,#1a0a12,#08080c 60%) fixed;color:var(--tx);line-height:1.6;min-height:100vh}
-a{color:var(--ac)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:rgba(20,21,26,.9);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:9}
-.nav a{color:var(--dim);text-decoration:none;font-weight:700}
-.logo{font-size:22px;font-weight:900;color:var(--ac)!important}.logo span{color:var(--tx)}
-.wrap{max-width:900px;margin:0 auto;padding:24px 16px}
-h1{font-size:28px;line-height:1.25;margin-bottom:8px;font-weight:900}
-h2{font-size:19px;margin:20px 0 6px;font-weight:800}
-.hero{text-align:center;padding:24px 0}
-.hero p,.lead{color:var(--dim);margin-bottom:18px;font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
-.crumb{font-size:13px;color:var(--dim);margin-bottom:8px}.crumb a{color:var(--dim)}
-.txt p{color:#d3d5e0;margin-bottom:10px;max-width:70ch}
-.more{display:flex;flex-wrap:wrap;gap:8px}
-.more a{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:6px 14px;text-decoration:none;color:var(--tx);font-size:14px;font-weight:600}
-footer{text-align:center;padding:30px 16px;margin-top:40px;border-top:1px solid var(--bd);background:rgba(20,21,26,.7)}
-footer p{margin:8px 0;color:var(--dim)}footer small{color:#777}
 
-/* ===== ROTATING RGB BORDER (Working Version) ===== */
+<!-- SEO Meta Tags -->
+<meta name="description" content="Free online tools: Word Counter, Age Calculator, BMI Calculator, Password Generator, QR Code Generator, Percentage Calculator and more. 100% free, no login required.">
+<meta name="keywords" content="word counter, age calculator, bmi calculator, password generator, qr code generator, percentage calculator, loan calculator, unit converter, free online tools">
+<meta name="author" content="SmartTools">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smart-tools.cyou/">
+
+<!-- Open Graph (Facebook) -->
+<meta property="og:title" content="SmartTools - Free Online Tools & Calculators">
+<meta property="og:description" content="10+ free online tools for everyday use. Word counter, age calculator, BMI, password generator and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smart-tools.cyou/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SmartTools - Free Online Tools & Calculators">
+<meta name="twitter:description" content="10+ free online tools for everyday use.">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+:root {
+    --bg: #08080c;
+    --bg-gradient: radial-gradient(circle at top, #1a0a12 0%, #08080c 60%);
+    --card: #12141c;
+    --border: #252833;
+    --accent: #ff0033;
+    --accent-glow: rgba(255, 0, 51, 0.4);
+    --text: #ffffff;
+    --text-dim: #8b8fa3;
+    --gradient: linear-gradient(135deg, #ff0033 0%, #b30024 100%);
+}
+body { background: var(--bg); background-image: var(--bg-gradient); color: var(--text); line-height: 1.6; min-height: 100vh; }
+
+/* Navbar */
+.navbar { background: rgba(20, 21, 26, 0.85); backdrop-filter: blur(12px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+.navbar .logo { font-size: 22px; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+.navbar .logo span { color: var(--text); }
+.navbar .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 15px; font-weight: 700; margin-left: 15px; transition: 0.3s; }
+.navbar .nav-links a:hover { color: var(--accent); }
+
+/* Hero */
+.hero { text-align: center; padding: 40px 20px 30px; }
+.hero h1 { font-size: 30px; font-weight: 900; margin-bottom: 10px; }
+.hero h1 span { color: var(--accent); }
+.hero p { color: var(--text-dim); font-size: 16px; font-weight: 600; max-width: 500px; margin: 0 auto; }
+
+/* Container */
+.container { max-width: 1100px; margin: 0 auto; padding: 20px 15px; }
+
+/* ============================================================
+   ROTATING RGB BORDER - WORKING VERSION
+   ============================================================ */
 @property --angle {
     syntax: '<angle>';
     initial-value: 0deg;
     inherits: false;
 }
 
-@keyframes rgb-border {
-    to {
-        --angle: 360deg;
-    }
+@keyframes rgb-rotate {
+    to { --angle: 360deg; }
 }
 
-.card-wrapper, .box-wrapper {
+/* Tools Grid */
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; margin-bottom: 30px; }
+
+.tool-card {
+    position: relative;
+    border-radius: 16px;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: var(--text);
+    background: conic-gradient(
+        from var(--angle),
+        #ff0033, #ff6600, #ffcc00, #00cc66,
+        #3399ff, #cc00ff, #ff0033
+    );
+    animation: rgb-rotate 3s linear infinite;
+}
+
+.tool-card .inner-box {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    position: relative;
+}
+
+.tool-card:hover { transform: translateY(-4px); }
+.tool-card:hover .inner-box { background: #1a1d28; }
+.tool-card .icon { font-size: 34px; margin-bottom: 10px; display: block; }
+.tool-card h3 { font-size: 14px; font-weight: 800; line-height: 1.3; text-align: center; }
+.tool-card .num { position: absolute; top: 8px; left: 10px; font-size: 12px; color: var(--text-dim); font-weight: 800; opacity: 0.6; }
+
+/* Tool Page */
+.tool-page { display: none; }
+.tool-page.active { display: block; }
+.tool-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid var(--border); position: relative; }
+.tool-header .home-btn { position: absolute; left: 0; background: var(--card); border: 1px solid var(--border); color: var(--text-dim); width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; cursor: pointer; transition: 0.3s; text-decoration: none; }
+.tool-header .home-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tool-header h2 { font-size: 24px; font-weight: 900; color: var(--text); text-align: center; }
+.tool-header h2 span { color: var(--accent); }
+
+/* Tool Content Box with RGB Border */
+.tool-content-box {
     position: relative;
     border-radius: 16px;
     padding: 3px;
     background: conic-gradient(
         from var(--angle),
-        #ff0033,
-        #ff6600,
-        #ffcc00,
-        #00cc66,
-        #3399ff,
-        #cc00ff,
-        #ff0033
+        #ff0033, #ff6600, #ffcc00, #00cc66,
+        #3399ff, #cc00ff, #ff0033
     );
-    animation: rgb-border 3s linear infinite;
+    animation: rgb-rotate 3s linear infinite;
 }
 
-.card-inner, .box-inner {
+.tool-content-box .inner-content {
     background: var(--card);
-    border-radius: 13px;
+    border-radius: 14px;
+    padding: 25px;
     position: relative;
-    z-index: 1;
-    height: 100%;
 }
 
-.card-inner {
-    padding: 18px 12px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 130px;
+/* Form Elements */
+.form-group { margin-bottom: 18px; text-align: center; }
+.form-group label { display: block; font-size: 15px; font-weight: 800; margin-bottom: 8px; color: var(--text-dim); text-align: center; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; background: var(--bg); border: 2px solid var(--border); border-radius: 10px; color: var(--text); font-size: 17px; font-weight: 700; outline: none; transition: 0.3s; font-family: inherit; text-align: center; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
+.form-group textarea { min-height: 120px; resize: vertical; text-align: left; }
+
+/* Button */
+.btn { background: var(--gradient); color: #fff; border: none; padding: 14px 32px; border-radius: 10px; font-size: 17px; font-weight: 800; cursor: pointer; transition: 0.3s; display: block; margin: 0 auto; text-decoration: none; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-glow); }
+.btn-secondary { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+.btn-secondary:hover { background: var(--accent); color: #fff; }
+
+/* Result Box */
+.result-box { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 20px; }
+.result-box .result-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.result-box .result-item:last-child { border-bottom: none; }
+.result-box .result-label { color: var(--text-dim); font-size: 15px; font-weight: 700; }
+.result-box .result-value { font-weight: 900; font-size: 18px; color: var(--accent); }
+
+/* Footer */
+.footer { background: rgba(20, 21, 26, 0.7); backdrop-filter: blur(12px); padding: 30px 20px 20px; margin-top: 50px; border-top: 1px solid var(--border); text-align: center; }
+.footer .logo { font-size: 20px; font-weight: 900; color: var(--accent); margin-bottom: 10px; }
+.footer .logo span { color: var(--text); }
+.footer p { font-size: 14px; font-weight: 700; color: var(--text-dim); max-width: 400px; margin: 0 auto 15px; }
+.footer .copyright { font-size: 12px; font-weight: 700; color: #555; border-top: 1px solid var(--border); padding-top: 12px; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 24px; }
+    .hero p { font-size: 14px; }
+    .tools-grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
+    .tool-card .inner-box { padding: 14px 6px; min-height: 110px; }
+    .tool-card .icon { font-size: 28px; }
+    .tool-card h3 { font-size: 12px; }
+    .tool-header h2 { font-size: 20px; }
+    .tool-header .home-btn { width: 38px; height: 38px; font-size: 18px; }
+    .tool-content-box .inner-content { padding: 18px; }
+    .form-group label { font-size: 14px; }
+    .form-group input, .form-group textarea, .form-group select { font-size: 15px; }
+    .btn { font-size: 15px; padding: 12px 26px; }
 }
 
-.box-inner {
-    padding: 22px;
+@media (prefers-reduced-motion: reduce) {
+    .tool-card, .tool-content-box { animation: none; }
 }
-
-.card {
-    display: block;
-    text-decoration: none;
-    color: var(--tx);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(255, 0, 51, 0.4);
-}
-
-.card i {
-    font-style: normal;
-    font-size: 34px;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.card h3 {
-    font-size: 15px;
-    margin: 4px 0 2px;
-    font-weight: 900;
-}
-
-.card p {
-    color: var(--dim);
-    font-size: 12px;
-    font-weight: 600;
-}
-
-/* ===== Form Elements ===== */
-.fg{margin-bottom:16px}
-label{display:block;font-weight:800;color:var(--dim);margin-bottom:6px;font-size:15px}
-input,textarea,select{width:100%;padding:13px 15px;background:var(--bg);border:2px solid var(--bd);border-radius:10px;color:var(--tx);font-size:16px;font-weight:700;font-family:inherit;text-align:center}
-input[type=range]{padding:0;accent-color:var(--ac)}
-input[type=checkbox]{width:auto;margin-right:8px;accent-color:var(--ac)}
-textarea{min-height:140px;resize:vertical;text-align:left}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px var(--glow)}
-.chk{margin-bottom:16px;text-align:center}
-.chk label{color:var(--tx);font-weight:700;display:block;margin-bottom:8px}
-
-/* ===== Button ===== */
-.btn{background:linear-gradient(135deg,#ff0033,#b30024);color:#fff;border:2px solid transparent;border-radius:10px;padding:13px 28px;font-size:16px;font-weight:900;cursor:pointer;display:block;margin:0 auto}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px var(--glow)}
-.btn2{background:transparent;border-color:var(--ac);color:var(--ac)}
-.btn2:hover{background:var(--ac);color:#fff}
-.row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.row .btn{margin:0;padding:10px 16px;font-size:14px}
-
-/* ===== Result Box ===== */
-.res{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:6px 16px;margin-top:18px}
-.res[hidden]{display:none}
-.ri{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--bd)}
-.ri:last-child{border:0}
-.ri span{color:var(--dim);font-weight:700;font-size:15px}
-.ri b{color:var(--ac);text-align:right;font-weight:900;font-size:17px}
-.pwd{font-family:monospace;font-size:18px;font-weight:900;color:var(--ac);word-break:break-all;text-align:center;padding:14px 0}
-.res .btn{margin-bottom:12px}
-.view[hidden]{display:none}
-
-@media(max-width:600px){
-  h1{font-size:23px}
-  .box-inner{padding:16px}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
-  .card-inner{padding:14px 8px;min-height:115px}
-  .card i{font-size:28px}
-  .card h3{font-size:13px}
-}
-@media(prefers-reduced-motion:reduce){.card-wrapper,.box-wrapper{animation:none}}
 </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="nav">
-  <a class="logo" href="#home">Smart<span>Tools</span></a>
-  <a href="#about">About</a>
+<nav class="navbar">
+    <div class="logo">Smart<span>Tools</span></div>
+    <div class="nav-links">
+        <a href="#tools">Tools</a>
+    </div>
 </nav>
 
-<main class="wrap">
+<!-- Hero -->
+<div class="hero" id="heroSection">
+    <h1>Free Online <span>Tools & Calculators</span></h1>
+    <p>10+ free tools for everyday use. No login, no download, 100% free forever.</p>
+</div>
 
-<!-- HOME -->
-<section class="view" id="v-home">
-  <div class="hero">
-    <h1>Free online tools and calculators</h1>
-    <p>Ten everyday tools that run in your browser. No login, no download, no cost.</p>
-  </div>
-  <div class="grid">
-    <a class="card" href="#word-counter"><div class="card-wrapper"><div class="card-inner"><i>📝</i><h3>Word Counter</h3><p>Count words, characters.</p></div></div></a>
-    <a class="card" href="#age-calculator"><div class="card-wrapper"><div class="card-inner"><i>🎂</i><h3>Age Calculator</h3><p>Exact age in years.</p></div></div></a>
-    <a class="card" href="#bmi-calculator"><div class="card-wrapper"><div class="card-inner"><i>⚖️</i><h3>BMI Calculator</h3><p>Body mass index.</p></div></div></a>
-    <a class="card" href="#percentage-calculator"><div class="card-wrapper"><div class="card-inner"><i>📊</i><h3>Percentage</h3><p>X% of any number.</p></div></div></a>
-    <a class="card" href="#password-generator"><div class="card-wrapper"><div class="card-inner"><i>🔐</i><h3>Password Gen</h3><p>Strong passwords.</p></div></div></a>
-    <a class="card" href="#qr-code-generator"><div class="card-wrapper"><div class="card-inner"><i>📱</i><h3>QR Code Gen</h3><p>Text into QR code.</p></div></div></a>
-    <a class="card" href="#unit-converter"><div class="card-wrapper"><div class="card-inner"><i>📏</i><h3>Unit Converter</h3><p>Length and weight.</p></div></div></a>
-    <a class="card" href="#loan-calculator"><div class="card-wrapper"><div class="card-inner"><i>💰</i><h3>Loan Calculator</h3><p>Monthly EMI.</p></div></div></a>
-    <a class="card" href="#random-number-generator"><div class="card-wrapper"><div class="card-inner"><i>🎲</i><h3>Random Num</h3><p>Pick random number.</p></div></div></a>
-    <a class="card" href="#text-case-converter"><div class="card-wrapper"><div class="card-inner"><i>🔤</i><h3>Text Case</h3><p>UPPER, lower, Title.</p></div></div></a>
-  </div>
-</section>
+<!-- Main Container -->
+<div class="container" id="tools">
 
-<!-- WORD COUNTER -->
-<section class="view" id="v-word-counter" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Word Counter</p>
-  <h1>📝 Word Counter</h1>
-  <p class="lead">Count words, characters, sentences and reading time instantly.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><textarea id="wcInput" placeholder="Type or paste your text here..." oninput="countWords()"></textarea></div>
-    <div class="res" id="wc">
-      <div class="ri"><span>Words</span><b id="wcWords">0</b></div>
-      <div class="ri"><span>Characters (with spaces)</span><b id="wcChars">0</b></div>
-      <div class="ri"><span>Characters (without spaces)</span><b id="wcCharsNoSpace">0</b></div>
-      <div class="ri"><span>Sentences</span><b id="wcSentences">0</b></div>
-      <div class="ri"><span>Paragraphs</span><b id="wcParagraphs">0</b></div>
-      <div class="ri"><span>Reading time</span><b id="wcReadingTime">0</b></div>
+    <!-- Tools Grid -->
+    <div class="tools-grid" id="toolsGrid">
+        <a class="tool-card" onclick="showTool('wordCounter')"><div class="inner-box"><span class="num">1</span><span class="icon">📝</span><h3>Word Counter</h3></div></a>
+        <a class="tool-card" onclick="showTool('ageCalculator')"><div class="inner-box"><span class="num">2</span><span class="icon">🎂</span><h3>Age Calculator</h3></div></a>
+        <a class="tool-card" onclick="showTool('bmiCalculator')"><div class="inner-box"><span class="num">3</span><span class="icon">⚖️</span><h3>BMI Calculator</h3></div></a>
+        <a class="tool-card" onclick="showTool('percentageCalculator')"><div class="inner-box"><span class="num">4</span><span class="icon">📊</span><h3>Percentage</h3></div></a>
+        <a class="tool-card" onclick="showTool('passwordGenerator')"><div class="inner-box"><span class="num">5</span><span class="icon">🔐</span><h3>Password Gen</h3></div></a>
+        <a class="tool-card" onclick="showTool('qrGenerator')"><div class="inner-box"><span class="num">6</span><span class="icon">📱</span><h3>QR Code Gen</h3></div></a>
+        <a class="tool-card" onclick="showTool('unitConverter')"><div class="inner-box"><span class="num">7</span><span class="icon">📏</span><h3>Unit Converter</h3></div></a>
+        <a class="tool-card" onclick="showTool('loanCalculator')"><div class="inner-box"><span class="num">8</span><span class="icon">💰</span><h3>Loan Calculator</h3></div></a>
+        <a class="tool-card" onclick="showTool('randomNumber')"><div class="inner-box"><span class="num">9</span><span class="icon">🎲</span><h3>Random Num</h3></div></a>
+        <a class="tool-card" onclick="showTool('textCase')"><div class="inner-box"><span class="num">10</span><span class="icon">🔤</span><h3>Text Case</h3></div></a>
     </div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the word counter</h2>
-    <p>Paste or type your text and the counts update as you type. Reading time assumes 200 words per minute, so it works for essays, blog posts and captions.</p>
-    <h2>Does it save my text?</h2>
-    <p>No. Everything is counted in your browser and your text is never uploaded.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
 
-<!-- AGE CALCULATOR -->
-<section class="view" id="v-age-calculator" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Age Calculator</p>
-  <h1>🎂 Age Calculator</h1>
-  <p class="lead">Find your exact age in years, months, days and hours.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="dobInput">Date of birth</label><input type="date" id="dobInput"></div>
-    <button class="btn" onclick="calculateAge()">Calculate age</button>
-    <div class="res" id="ageResult" hidden>
-      <div class="ri"><span>Your age</span><b id="ageYears">0</b></div>
-      <div class="ri"><span>Total months</span><b id="ageMonths">0</b></div>
-      <div class="ri"><span>Total days</span><b id="ageDays">0</b></div>
-      <div class="ri"><span>Total hours</span><b id="ageHours">0</b></div>
-      <div class="ri"><span>Next birthday in</span><b id="nextBirthday">0</b></div>
+    <!-- Tool Pages -->
+
+    <!-- 1. Word Counter -->
+    <div class="tool-page" id="wordCounter">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📝 <span>Word Counter</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><textarea id="wcInput" placeholder="Type or paste your text here..." oninput="countWords()"></textarea></div>
+            <div class="result-box">
+                <div class="result-item"><span class="result-label">Words</span><span class="result-value" id="wcWords">0</span></div>
+                <div class="result-item"><span class="result-label">Characters (with spaces)</span><span class="result-value" id="wcChars">0</span></div>
+                <div class="result-item"><span class="result-label">Characters (without spaces)</span><span class="result-value" id="wcCharsNoSpace">0</span></div>
+                <div class="result-item"><span class="result-label">Sentences</span><span class="result-value" id="wcSentences">0</span></div>
+                <div class="result-item"><span class="result-label">Paragraphs</span><span class="result-value" id="wcParagraphs">0</span></div>
+                <div class="result-item"><span class="result-label">Reading Time</span><span class="result-value" id="wcReadingTime">0 min</span></div>
+            </div>
+        </div></div>
     </div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the age calculator</h2>
-    <p>Pick your date of birth and press Calculate. You get your age in years, months and days, plus total months, days and hours lived and a countdown to your next birthday.</p>
-    <h2>Is the result exact?</h2>
-    <p>It uses today's date from your device, so it is accurate to the day.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
 
-<!-- BMI CALCULATOR -->
-<section class="view" id="v-bmi-calculator" hidden>
-  <p class="crumb"><a href="#home">Home</a> / BMI Calculator</p>
-  <h1>⚖️ BMI Calculator</h1>
-  <p class="lead">Calculate your body mass index from weight and height.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="bmiWeight">Weight (kg)</label><input type="number" id="bmiWeight" placeholder="e.g. 70"></div>
-    <div class="fg"><label for="bmiHeight">Height (cm)</label><input type="number" id="bmiHeight" placeholder="e.g. 175"></div>
-    <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
-    <div class="res" id="bmiResult" hidden>
-      <div class="ri"><span>Your BMI</span><b id="bmiValue">0</b></div>
-      <div class="ri"><span>Category</span><b id="bmiCategory">0</b></div>
+    <!-- 2. Age Calculator -->
+    <div class="tool-page" id="ageCalculator">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🎂 <span>Age Calculator</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>Date of Birth</label><input type="date" id="dobInput"></div>
+            <button class="btn" onclick="calculateAge()">Calculate Age</button>
+            <div class="result-box" id="ageResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Your Age</span><span class="result-value" id="ageYears">0</span></div>
+                <div class="result-item"><span class="result-label">Total Months</span><span class="result-value" id="ageMonths">0</span></div>
+                <div class="result-item"><span class="result-label">Total Days</span><span class="result-value" id="ageDays">0</span></div>
+                <div class="result-item"><span class="result-label">Total Hours</span><span class="result-value" id="ageHours">0</span></div>
+                <div class="result-item"><span class="result-label">Next Birthday In</span><span class="result-value" id="nextBirthday">0 days</span></div>
+            </div>
+        </div></div>
     </div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the bmi calculator</h2>
-    <p>Enter your weight in kilograms and height in centimetres. BMI is weight divided by height squared, and the categories follow the standard WHO ranges for adults.</p>
-    <h2>Is BMI a diagnosis?</h2>
-    <p>No. It is a rough screening number and does not measure body fat or muscle. Talk to a doctor for health advice.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
 
-<!-- PERCENTAGE CALCULATOR -->
-<section class="view" id="v-percentage-calculator" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Percentage Calculator</p>
-  <h1>📊 Percentage Calculator</h1>
-  <p class="lead">Work out what X% of any number is.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="pctX">What is X% of Y?</label><input type="number" id="pctX" placeholder="X (percentage)"></div>
-    <div class="fg"><label for="pctY">Y (number)</label><input type="number" id="pctY" placeholder="Y (number)"></div>
-    <button class="btn" onclick="calculatePercentage()">Calculate</button>
-    <div class="res" id="pctResult" hidden><div class="ri"><span>Result</span><b id="pctValue">0</b></div></div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the percentage calculator</h2>
-    <p>Type the percentage in the first box and the number in the second. For example, 15% of 2000 is 300. Useful for discounts, tips, marks and tax.</p>
-    <h2>How is it calculated?</h2>
-    <p>The result is (X ÷ 100) × Y.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
-
-<!-- PASSWORD GENERATOR -->
-<section class="view" id="v-password-generator" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Password Generator</p>
-  <h1>🔐 Password Generator</h1>
-  <p class="lead">Create strong random passwords with your own rules.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="pwdLength">Length: <span id="pwdLengthLabel">16</span></label><input type="range" id="pwdLength" min="8" max="32" value="16" oninput="document.getElementById('pwdLengthLabel').textContent=this.value"></div>
-    <div class="chk">
-      <label><input type="checkbox" id="pwdUpper" checked> Uppercase (A-Z)</label>
-      <label><input type="checkbox" id="pwdLower" checked> Lowercase (a-z)</label>
-      <label><input type="checkbox" id="pwdNumber" checked> Numbers (0-9)</label>
-      <label><input type="checkbox" id="pwdSymbol" checked> Symbols (!@#$)</label>
+    <!-- 3. BMI Calculator -->
+    <div class="tool-page" id="bmiCalculator">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>⚖️ <span>BMI Calculator</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmiWeight" placeholder="e.g. 70"></div>
+            <div class="form-group"><label>Height (cm)</label><input type="number" id="bmiHeight" placeholder="e.g. 175"></div>
+            <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
+            <div class="result-box" id="bmiResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Your BMI</span><span class="result-value" id="bmiValue">0</span></div>
+                <div class="result-item"><span class="result-label">Category</span><span class="result-value" id="bmiCategory">-</span></div>
+            </div>
+        </div></div>
     </div>
-    <button class="btn" onclick="generatePassword()">Generate password</button>
-    <div class="res" id="pwdResult" hidden>
-      <div class="pwd" id="pwdValue"></div>
-      <button class="btn btn2" onclick="copyPwd()">Copy password</button>
+
+    <!-- 4. Percentage Calculator -->
+    <div class="tool-page" id="percentageCalculator">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📊 <span>Percentage Calculator</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>What is X% of Y?</label><input type="number" id="pctX" placeholder="X (percentage)" style="margin-bottom:8px;"><input type="number" id="pctY" placeholder="Y (number)"></div>
+            <button class="btn" onclick="calculatePercentage()">Calculate</button>
+            <div class="result-box" id="pctResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="pctValue">0</span></div></div>
+        </div></div>
     </div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the password generator</h2>
-    <p>Choose a length and the character types you want, then press Generate. Longer passwords with mixed characters are much harder to guess. Use a different password for every account.</p>
-    <h2>Is it safe to use?</h2>
-    <p>Passwords are made in your browser with the secure random generator and are never sent anywhere.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
 
-<!-- QR CODE GENERATOR -->
-<section class="view" id="v-qr-code-generator" hidden>
-  <p class="crumb"><a href="#home">Home</a> / QR Code Generator</p>
-  <h1>📱 QR Code Generator</h1>
-  <p class="lead">Turn any link or text into a QR code.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="qrInput">Text or URL</label><input type="text" id="qrInput" placeholder="https://example.com"></div>
-    <button class="btn" onclick="generateQR()">Generate QR code</button>
-    <div class="res" id="qrResult" hidden style="text-align:center"><div id="qrImage"></div></div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the qr code generator</h2>
-    <p>Enter a website link or any text and press Generate. Right-click or long-press the QR code to save the image, then print it or share it.</p>
-    <h2>Does the QR code expire?</h2>
-    <p>No. The code simply contains your text, so it works as long as the link inside it works.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
-
-<!-- UNIT CONVERTER -->
-<section class="view" id="v-unit-converter" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Unit Converter</p>
-  <h1>📏 Unit Converter</h1>
-  <p class="lead">Convert length and weight units quickly.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="unitType">Convert</label><select id="unitType" onchange="updateUnits()"><option value="length">Length</option><option value="weight">Weight</option></select></div>
-    <div class="fg"><label for="unitValue">Value</label><input type="number" id="unitValue" placeholder="Enter value"></div>
-    <div class="fg"><label for="unitFrom">From</label><select id="unitFrom"></select></div>
-    <div class="fg"><label for="unitTo">To</label><select id="unitTo"></select></div>
-    <button class="btn" onclick="convertUnit()">Convert</button>
-    <div class="res" id="unitResult" hidden><div class="ri"><span>Result</span><b id="unitValueResult">0</b></div></div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the unit converter</h2>
-    <p>Choose length or weight, enter a value, then pick the units to convert from and to. Supports metres, kilometres, feet, inches, miles, kilograms, grams, pounds and ounces.</p>
-    <h2>How accurate is it?</h2>
-    <p>Results are shown to four decimal places using standard conversion factors.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
-
-<!-- LOAN CALCULATOR -->
-<section class="view" id="v-loan-calculator" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Loan Calculator</p>
-  <h1>💰 Loan Calculator</h1>
-  <p class="lead">Calculate your monthly EMI, total interest and total payment.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="loanAmount">Loan amount (৳)</label><input type="number" id="loanAmount" placeholder="e.g. 100000"></div>
-    <div class="fg"><label for="loanRate">Interest rate (% per year)</label><input type="number" id="loanRate" placeholder="e.g. 10"></div>
-    <div class="fg"><label for="loanTerm">Loan term (months)</label><input type="number" id="loanTerm" placeholder="e.g. 12"></div>
-    <button class="btn" onclick="calculateLoan()">Calculate EMI</button>
-    <div class="res" id="loanResult" hidden>
-      <div class="ri"><span>Monthly EMI</span><b id="loanEMI">0</b></div>
-      <div class="ri"><span>Total interest</span><b id="loanInterest">0</b></div>
-      <div class="ri"><span>Total payment</span><b id="loanTotal">0</b></div>
+    <!-- 5. Password Generator -->
+    <div class="tool-page" id="passwordGenerator">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🔐 <span>Password Generator</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>Password Length: <span id="pwdLengthLabel">16</span></label><input type="range" id="pwdLength" min="8" max="32" value="16" oninput="document.getElementById('pwdLengthLabel').textContent=this.value"></div>
+            <div class="form-group">
+                <label><input type="checkbox" id="pwdUpper" checked> Uppercase (A-Z)</label><br>
+                <label><input type="checkbox" id="pwdLower" checked> Lowercase (a-z)</label><br>
+                <label><input type="checkbox" id="pwdNumber" checked> Numbers (0-9)</label><br>
+                <label><input type="checkbox" id="pwdSymbol" checked> Symbols (!@#$)</label>
+            </div>
+            <button class="btn" onclick="generatePassword()">Generate Password</button>
+            <div class="result-box" id="pwdResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Your Password</span></div>
+                <div style="background:var(--bg);padding:15px;border-radius:8px;margin-top:10px;word-break:break-all;font-family:monospace;font-size:18px;font-weight:800;color:var(--accent);text-align:center;" id="pwdValue"></div>
+                <button class="btn btn-secondary" style="margin-top:12px;" onclick="copyPwd()">📋 Copy Password</button>
+            </div>
+        </div></div>
     </div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the loan calculator</h2>
-    <p>Enter the loan amount, yearly interest rate and the number of months. The calculator uses the reducing-balance EMI formula that most banks use.</p>
-    <h2>Will my bank's figure match?</h2>
-    <p>It may differ slightly because of processing fees or different rounding. Treat this as an estimate.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#random-number-generator">Random Number Generator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
 
-<!-- RANDOM NUMBER -->
-<section class="view" id="v-random-number-generator" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Random Number Generator</p>
-  <h1>🎲 Random Number Generator</h1>
-  <p class="lead">Pick a random number between any two values.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><label for="randMin">Minimum</label><input type="number" id="randMin" value="1"></div>
-    <div class="fg"><label for="randMax">Maximum</label><input type="number" id="randMax" value="100"></div>
-    <button class="btn" onclick="generateRandom()">Generate</button>
-    <div class="res" id="randResult" hidden><div class="ri"><span>Random number</span><b id="randValue">0</b></div></div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the random number generator</h2>
-    <p>Set a minimum and maximum, then press Generate. Both values are included in the range. Handy for games, giveaways and picking turns.</p>
-    <h2>Is it truly random?</h2>
-    <p>It uses your browser's pseudo-random generator, which is fine for games and draws but not for security.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#text-case-converter">Text Case Converter</a></div>
-  </div>
-</section>
-
-<!-- TEXT CASE CONVERTER -->
-<section class="view" id="v-text-case-converter" hidden>
-  <p class="crumb"><a href="#home">Home</a> / Text Case Converter</p>
-  <h1>🔤 Text Case Converter</h1>
-  <p class="lead">Change text to uppercase, lowercase, title case or sentence case.</p>
-  <div class="box-wrapper"><div class="box-inner">
-    <div class="fg"><textarea id="caseInput" placeholder="Type or paste text here..."></textarea></div>
-    <div class="row">
-      <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
-      <button class="btn" onclick="convertCase('lower')">lowercase</button>
-      <button class="btn" onclick="convertCase('title')">Title Case</button>
-      <button class="btn" onclick="convertCase('sentence')">Sentence case</button>
-      <button class="btn btn2" onclick="convertCase('clear')">Clear</button>
+    <!-- 6. QR Code Generator -->
+    <div class="tool-page" id="qrGenerator">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📱 <span>QR Code Generator</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>Enter Text or URL</label><input type="text" id="qrInput" placeholder="https://example.com"></div>
+            <button class="btn" onclick="generateQR()">Generate QR Code</button>
+            <div class="result-box" id="qrResult" style="display:none;text-align:center;"><div id="qrImage"></div></div>
+        </div></div>
     </div>
-  </div></div>
-  <div class="txt">
-    <h2>How to use the text case converter</h2>
-    <p>Paste your text and press the case you want. Title Case capitalises every word, and Sentence case capitalises only the first letter of each sentence.</p>
-    <h2>Is there a text limit?</h2>
-    <p>No fixed limit. Very large texts may feel slow on older phones.</p>
-    <h2>More free tools</h2>
-    <div class="more"><a href="#word-counter">Word Counter</a><a href="#age-calculator">Age Calculator</a><a href="#bmi-calculator">BMI Calculator</a><a href="#percentage-calculator">Percentage Calculator</a><a href="#password-generator">Password Generator</a><a href="#qr-code-generator">QR Code Generator</a><a href="#unit-converter">Unit Converter</a><a href="#loan-calculator">Loan Calculator</a><a href="#random-number-generator">Random Number Generator</a></div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section class="view" id="v-about" hidden>
-  <h1>About SmartTools</h1>
-  <div class="txt">
-    <p>SmartTools is a collection of simple, free tools for everyday tasks: counting words, working out an age or a loan instalment, converting units, making QR codes and strong passwords.</p>
-    <p>Every tool runs in your browser. We do not ask you to sign up, and the text and numbers you enter are not stored on our servers.</p>
-    <p>Found a bug or want a new tool? <a href="#contact">Tell us</a>.</p>
-  </div>
-</section>
+    <!-- 7. Unit Converter -->
+    <div class="tool-page" id="unitConverter">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>📏 <span>Unit Converter</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>Convert</label><select id="unitType" onchange="updateUnits()"><option value="length">Length</option><option value="weight">Weight</option></select></div>
+            <div class="form-group"><input type="number" id="unitValue" placeholder="Enter value" style="margin-bottom:8px;"><select id="unitFrom" style="margin-bottom:8px;"></select><select id="unitTo"></select></div>
+            <button class="btn" onclick="convertUnit()">Convert</button>
+            <div class="result-box" id="unitResult" style="display:none;"><div class="result-item"><span class="result-label">Result</span><span class="result-value" id="unitValueResult">0</span></div></div>
+        </div></div>
+    </div>
 
-<!-- PRIVACY -->
-<section class="view" id="v-privacy" hidden>
-  <h1>Privacy Policy</h1>
-  <div class="txt">
-    <p>Last updated: October 2026.</p>
-    <h2>Your input</h2>
-    <p>Text, numbers and dates you type into our tools are processed in your browser and are not sent to or stored on our servers. The QR code tool sends the text you enter to a third-party image service (api.qrserver.com) to draw the code.</p>
-    <h2>Analytics and cookies</h2>
-    <p>We may use analytics tools to understand how many people visit and which tools are popular. These tools may set cookies. If we show ads in the future, ad partners such as Google may also use cookies to show relevant ads.</p>
-    <h2>Contact</h2>
-    <p>Questions about this policy? Visit our <a href="#contact">contact page</a>.</p>
-  </div>
-</section>
+    <!-- 8. Loan Calculator -->
+    <div class="tool-page" id="loanCalculator">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>💰 <span>Loan Calculator</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>Loan Amount (৳)</label><input type="number" id="loanAmount" placeholder="e.g. 100000"></div>
+            <div class="form-group"><label>Interest Rate (% per year)</label><input type="number" id="loanRate" placeholder="e.g. 10"></div>
+            <div class="form-group"><label>Loan Term (months)</label><input type="number" id="loanTerm" placeholder="e.g. 12"></div>
+            <button class="btn" onclick="calculateLoan()">Calculate EMI</button>
+            <div class="result-box" id="loanResult" style="display:none;">
+                <div class="result-item"><span class="result-label">Monthly EMI</span><span class="result-value" id="loanEMI">0</span></div>
+                <div class="result-item"><span class="result-label">Total Interest</span><span class="result-value" id="loanInterest">0</span></div>
+                <div class="result-item"><span class="result-label">Total Payment</span><span class="result-value" id="loanTotal">0</span></div>
+            </div>
+        </div></div>
+    </div>
 
-<!-- CONTACT -->
-<section class="view" id="v-contact" hidden>
-  <h1>Contact</h1>
-  <div class="txt">
-    <p>For feedback, bug reports or tool requests, email us at <a href="mailto:tmd448647@gmail.com">tmd448647@gmail.com</a>.</p>
-  </div>
-</section>
+    <!-- 9. Random Number -->
+    <div class="tool-page" id="randomNumber">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🎲 <span>Random Number Generator</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><label>Minimum</label><input type="number" id="randMin" value="1" style="margin-bottom:8px;"><label>Maximum</label><input type="number" id="randMax" value="100"></div>
+            <button class="btn" onclick="generateRandom()">Generate</button>
+            <div class="result-box" id="randResult" style="display:none;"><div class="result-item"><span class="result-label">Random Number</span><span class="result-value" id="randValue">0</span></div></div>
+        </div></div>
+    </div>
 
-</main>
+    <!-- 10. Text Case Converter -->
+    <div class="tool-page" id="textCase">
+        <div class="tool-header"><a class="home-btn" onclick="backToTools()">←</a><h2>🔤 <span>Text Case Converter</span></h2></div>
+        <div class="tool-content-box"><div class="inner-content">
+            <div class="form-group"><textarea id="caseInput" placeholder="Type or paste text here..."></textarea></div>
+            <button class="btn" onclick="convertCase('upper')" style="margin-right:8px;">UPPERCASE</button>
+            <button class="btn" onclick="convertCase('lower')" style="margin-right:8px;">lowercase</button>
+            <button class="btn" onclick="convertCase('title')" style="margin-right:8px;">Title Case</button>
+            <button class="btn" onclick="convertCase('sentence')" style="margin-right:8px;">Sentence case</button>
+            <button class="btn btn-secondary" onclick="convertCase('clear')">Clear</button>
+        </div></div>
+    </div>
+
+</div>
 
 <!-- Footer -->
-<footer>
-  <a class="logo" href="#home">Smart<span>Tools</span></a>
-  <p><a href="#about">About</a> | <a href="#privacy">Privacy Policy</a> | <a href="#contact">Contact</a></p>
-  <small>© 2026 SmartTools. All rights reserved.</small>
-</footer>
+<div class="footer">
+    <div class="logo">Smart<span>Tools</span></div>
+    <p>Free online tools for everyday use. No login, no download, 100% free.</p>
+    <div class="copyright">© 2026 SmartTools. All Rights Reserved.</div>
+</div>
 
 <script>
-const $=i=>document.getElementById(i),show=i=>{$(i).hidden=false};
+// ========== Tool Navigation ==========
+function showTool(id) {
+    document.querySelectorAll('.tool-page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('toolsGrid').style.display = 'none';
+    document.getElementById('heroSection').style.display = 'none';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
 
-function countWords(){const t=$('wcInput').value,s=t.trim();
-$('wcWords').textContent=s?s.split(/\s+/).length:0;$('wcChars').textContent=t.length;
-$('wcCharsNoSpace').textContent=t.replace(/\s/g,'').length;
-$('wcSentences').textContent=s?s.split(/[.!?]+/).filter(x=>x.trim()).length:0;
-$('wcParagraphs').textContent=s?t.split(/\n+/).filter(x=>x.trim()).length:0;
-$('wcReadingTime').textContent=Math.ceil((s?s.split(/\s+/).length:0)/200)+' min'}
+function backToTools() {
+    document.querySelectorAll('.tool-page').forEach(p => p.classList.remove('active'));
+    document.getElementById('toolsGrid').style.display = 'grid';
+    document.getElementById('heroSection').style.display = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
 
-function calculateAge(){const dob=new Date($('dobInput').value),n=new Date();
-if(isNaN(dob)||dob>n){alert('Please select a valid date of birth');return}
-let y=n.getFullYear()-dob.getFullYear(),m=n.getMonth()-dob.getMonth(),d=n.getDate()-dob.getDate();
-if(d<0){m--;d+=new Date(n.getFullYear(),n.getMonth(),0).getDate()}
-if(m<0){y--;m+=12}
-const td=Math.floor((n-dob)/864e5);let nb=new Date(n.getFullYear(),dob.getMonth(),dob.getDate());
-if(nb<n)nb.setFullYear(nb.getFullYear()+1);
-$('ageYears').textContent=y+'y '+m+'m '+d+'d';$('ageMonths').textContent=y*12+m;
-$('ageDays').textContent=td;$('ageHours').textContent=td*24;
-$('nextBirthday').textContent=Math.ceil((nb-n)/864e5)+' days';show('ageResult')}
+// ========== 1. Word Counter ==========
+function countWords() {
+    const text = document.getElementById('wcInput').value;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const chars = text.length;
+    const charsNoSpace = text.replace(/\s/g, '').length;
+    const sentences = text.trim() ? text.split(/[.!?]+/).filter(s => s.trim()).length : 0;
+    const paragraphs = text.trim() ? text.split(/\n+/).filter(p => p.trim()).length : 0;
+    const readingTime = Math.ceil(words / 200);
+    document.getElementById('wcWords').textContent = words;
+    document.getElementById('wcChars').textContent = chars;
+    document.getElementById('wcCharsNoSpace').textContent = charsNoSpace;
+    document.getElementById('wcSentences').textContent = sentences;
+    document.getElementById('wcParagraphs').textContent = paragraphs;
+    document.getElementById('wcReadingTime').textContent = readingTime + ' min';
+}
 
-function calculateBMI(){const w=parseFloat($('bmiWeight').value),h=parseFloat($('bmiHeight').value)/100;
-if(!w||!h){alert('Please enter weight and height');return}
-const b=w/(h*h);$('bmiValue').textContent=b.toFixed(1);
-$('bmiCategory').textContent=b<18.5?'Underweight':b<25?'Normal weight':b<30?'Overweight':'Obese';show('bmiResult')}
+// ========== 2. Age Calculator ==========
+function calculateAge() {
+    const dob = new Date(document.getElementById('dobInput').value);
+    if (isNaN(dob)) { alert('Please select a valid date'); return; }
+    const today = new Date();
+    let years = today.getFullYear() - dob.getFullYear();
+    let months = today.getMonth() - dob.getMonth();
+    let days = today.getDate() - dob.getDate();
+    if (days < 0) { months--; days += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); }
+    if (months < 0) { years--; months += 12; }
+    const totalDays = Math.floor((today - dob) / (1000 * 60 * 60 * 24));
+    const totalMonths = years * 12 + months;
+    const totalHours = totalDays * 24;
+    let nextBday = new Date(today.getFullYear(), dob.getMonth(), dob.getDate());
+    if (nextBday < today) nextBday.setFullYear(nextBday.getFullYear() + 1);
+    const daysToNext = Math.ceil((nextBday - today) / (1000 * 60 * 60 * 24));
+    document.getElementById('ageYears').textContent = years + ' years, ' + months + ' months, ' + days + ' days';
+    document.getElementById('ageMonths').textContent = totalMonths;
+    document.getElementById('ageDays').textContent = totalDays;
+    document.getElementById('ageHours').textContent = totalHours;
+    document.getElementById('nextBirthday').textContent = daysToNext + ' days';
+    document.getElementById('ageResult').style.display = 'block';
+}
 
-function calculatePercentage(){const x=parseFloat($('pctX').value),y=parseFloat($('pctY').value);
-if(isNaN(x)||isNaN(y)){alert('Please enter both values');return}
-$('pctValue').textContent=(x/100*y).toFixed(2);show('pctResult')}
+// ========== 3. BMI Calculator ==========
+function calculateBMI() {
+    const weight = parseFloat(document.getElementById('bmiWeight').value);
+    const height = parseFloat(document.getElementById('bmiHeight').value) / 100;
+    if (!weight || !height) { alert('Please enter weight and height'); return; }
+    const bmi = (weight / (height * height)).toFixed(1);
+    let category = '';
+    if (bmi < 18.5) category = 'Underweight';
+    else if (bmi < 25) category = 'Normal weight';
+    else if (bmi < 30) category = 'Overweight';
+    else category = 'Obese';
+    document.getElementById('bmiValue').textContent = bmi;
+    document.getElementById('bmiCategory').textContent = category;
+    document.getElementById('bmiResult').style.display = 'block';
+}
 
-function generatePassword(){const L=+$('pwdLength').value;let c='';
-[['pwdUpper','ABCDEFGHIJKLMNOPQRSTUVWXYZ'],['pwdLower','abcdefghijklmnopqrstuvwxyz'],['pwdNumber','0123456789'],['pwdSymbol','!@#$%^&*()_+-=[]{}|;:,.<>?']].forEach(([i,s])=>{if($(i).checked)c+=s});
-if(!c){alert('Select at least one option');return}
-const a=new Uint32Array(L);crypto.getRandomValues(a);
-$('pwdValue').textContent=[...a].map(n=>c[n%c.length]).join('');show('pwdResult')}
+// ========== 4. Percentage Calculator ==========
+function calculatePercentage() {
+    const x = parseFloat(document.getElementById('pctX').value);
+    const y = parseFloat(document.getElementById('pctY').value);
+    if (isNaN(x) || isNaN(y)) { alert('Please enter both values'); return; }
+    document.getElementById('pctValue').textContent = ((x / 100) * y).toFixed(2);
+    document.getElementById('pctResult').style.display = 'block';
+}
 
-function copyPwd(){navigator.clipboard.writeText($('pwdValue').textContent).then(()=>alert('Password copied!'))}
+// ========== 5. Password Generator ==========
+function generatePassword() {
+    const length = parseInt(document.getElementById('pwdLength').value);
+    const upper = document.getElementById('pwdUpper').checked;
+    const lower = document.getElementById('pwdLower').checked;
+    const number = document.getElementById('pwdNumber').checked;
+    const symbol = document.getElementById('pwdSymbol').checked;
+    if (!upper && !lower && !number && !symbol) { alert('Select at least one option'); return; }
+    let chars = '';
+    if (upper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (lower) chars += 'abcdefghijklmnopqrstuvwxyz';
+    if (number) chars += '0123456789';
+    if (symbol) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+    let password = '';
+    for (let i = 0; i < length; i++) password += chars.charAt(Math.floor(Math.random() * chars.length));
+    document.getElementById('pwdValue').textContent = password;
+    document.getElementById('pwdResult').style.display = 'block';
+}
+function copyPwd() { navigator.clipboard.writeText(document.getElementById('pwdValue').textContent); alert('Password copied!'); }
 
-function generateQR(){const t=$('qrInput').value.trim();if(!t){alert('Please enter text or URL');return}
-$('qrImage').innerHTML='<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+encodeURIComponent(t)+'" alt="QR code" width="250" height="250" style="border-radius:10px;max-width:100%">';show('qrResult')}
+// ========== 6. QR Code Generator ==========
+function generateQR() {
+    const text = document.getElementById('qrInput').value.trim();
+    if (!text) { alert('Please enter text or URL'); return; }
+    document.getElementById('qrImage').innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(text) + '" alt="QR Code" style="border-radius:10px;">';
+    document.getElementById('qrResult').style.display = 'block';
+}
 
-const units={length:{'Meter (m)':1,'Centimeter (cm)':.01,'Kilometer (km)':1000,'Foot (ft)':.3048,'Inch (in)':.0254,'Mile (mi)':1609.34},
-weight:{'Kilogram (kg)':1,'Gram (g)':.001,'Pound (lb)':.453592,'Ounce (oz)':.0283495}};
+// ========== 7. Unit Converter ==========
+const units = {
+    length: { 'Meter (m)': 1, 'Centimeter (cm)': 0.01, 'Kilometer (km)': 1000, 'Foot (ft)': 0.3048, 'Inch (in)': 0.0254, 'Mile (mi)': 1609.34 },
+    weight: { 'Kilogram (kg)': 1, 'Gram (g)': 0.001, 'Pound (lb)': 0.453592, 'Ounce (oz)': 0.0283495 }
+};
+function updateUnits() {
+    const type = document.getElementById('unitType').value;
+    const fromSel = document.getElementById('unitFrom');
+    const toSel = document.getElementById('unitTo');
+    fromSel.innerHTML = ''; toSel.innerHTML = '';
+    Object.keys(units[type]).forEach(u => { fromSel.innerHTML += '<option value="' + u + '">' + u + '</option>'; toSel.innerHTML += '<option value="' + u + '">' + u + '</option>'; });
+}
+function convertUnit() {
+    const type = document.getElementById('unitType').value;
+    const value = parseFloat(document.getElementById('unitValue').value);
+    const from = document.getElementById('unitFrom').value;
+    const to = document.getElementById('unitTo').value;
+    if (isNaN(value)) { alert('Please enter a value'); return; }
+    document.getElementById('unitValueResult').textContent = ((value * units[type][from]) / units[type][to]).toFixed(4) + ' ' + to;
+    document.getElementById('unitResult').style.display = 'block';
+}
 
-function updateUnits(){const o=Object.keys(units[$('unitType').value]).map(u=>'<option>'+u+'</option>').join('');
-$('unitFrom').innerHTML=o;$('unitTo').innerHTML=o}
+// ========== 8. Loan Calculator ==========
+function calculateLoan() {
+    const p = parseFloat(document.getElementById('loanAmount').value);
+    const r = parseFloat(document.getElementById('loanRate').value) / 12 / 100;
+    const n = parseFloat(document.getElementById('loanTerm').value);
+    if (!p || !r || !n) { alert('Please fill all fields'); return; }
+    const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    const total = emi * n;
+    document.getElementById('loanEMI').textContent = '৳ ' + emi.toFixed(2);
+    document.getElementById('loanInterest').textContent = '৳ ' + (total - p).toFixed(2);
+    document.getElementById('loanTotal').textContent = '৳ ' + total.toFixed(2);
+    document.getElementById('loanResult').style.display = 'block';
+}
 
-function convertUnit(){const t=units[$('unitType').value],v=parseFloat($('unitValue').value);
-if(isNaN(v)){alert('Please enter a value');return}
-const to=$('unitTo').value;$('unitValueResult').textContent=(v*t[$('unitFrom').value]/t[to]).toFixed(4)+' '+to;show('unitResult')}
+// ========== 9. Random Number ==========
+function generateRandom() {
+    const min = parseInt(document.getElementById('randMin').value);
+    const max = parseInt(document.getElementById('randMax').value);
+    if (isNaN(min) || isNaN(max) || min > max) { alert('Please enter valid range'); return; }
+    document.getElementById('randValue').textContent = Math.floor(Math.random() * (max - min + 1)) + min;
+    document.getElementById('randResult').style.display = 'block';
+}
 
-function calculateLoan(){const p=parseFloat($('loanAmount').value),yr=parseFloat($('loanRate').value),n=parseFloat($('loanTerm').value);
-if(!p||isNaN(yr)||!n){alert('Please fill all fields');return}
-const r=yr/1200,e=r?p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):p/n,t=e*n;
-$('loanEMI').textContent='৳ '+e.toFixed(2);$('loanInterest').textContent='৳ '+(t-p).toFixed(2);$('loanTotal').textContent='৳ '+t.toFixed(2);show('loanResult')}
+// ========== 10. Text Case Converter ==========
+function convertCase(type) {
+    const input = document.getElementById('caseInput');
+    let text = input.value;
+    if (type === 'upper') input.value = text.toUpperCase();
+    else if (type === 'lower') input.value = text.toLowerCase();
+    else if (type === 'title') input.value = text.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
+    else if (type === 'sentence') input.value = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+    else if (type === 'clear') input.value = '';
+}
 
-function generateRandom(){const a=parseInt($('randMin').value),b=parseInt($('randMax').value);
-if(isNaN(a)||isNaN(b)||a>b){alert('Please enter a valid range');return}
-$('randValue').textContent=Math.floor(Math.random()*(b-a+1))+a;show('randResult')}
-
-function convertCase(k){const e=$('caseInput'),t=e.value;
-e.value=k=='upper'?t.toUpperCase():k=='lower'?t.toLowerCase():k=='title'?t.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()):k=='sentence'?t.toLowerCase().replace(/(^\s*|[.!?]\s+)([a-z])/g,(m,a,c)=>a+c.toUpperCase()):''}
-
-if($('unitType'))updateUnits();
-
-const META={
-"v-home":["SmartTools - Free Online Tools & Calculators","10+ free online tools: word counter, age calculator, BMI, password generator, QR code generator, loan calculator and more. No login needed."],
-"v-word-counter":["Word Counter - Free Online | SmartTools","Count words, characters, sentences and reading time instantly. Free, no login."],
-"v-age-calculator":["Age Calculator - Free Online | SmartTools","Find your exact age in years, months, days and hours. Free, no login."],
-"v-bmi-calculator":["BMI Calculator - Free Online | SmartTools","Calculate your body mass index from weight and height. Free, no login."],
-"v-percentage-calculator":["Percentage Calculator - Free Online | SmartTools","Work out what X% of any number is. Free, no login."],
-"v-password-generator":["Password Generator - Free Online | SmartTools","Create strong random passwords with your own rules. Free, no login."],
-"v-qr-code-generator":["QR Code Generator - Free Online | SmartTools","Turn any link or text into a QR code. Free, no login."],
-"v-unit-converter":["Unit Converter - Free Online | SmartTools","Convert length and weight units quickly. Free, no login."],
-"v-loan-calculator":["Loan Calculator - Free Online | SmartTools","Calculate your monthly EMI, total interest and total payment. Free, no login."],
-"v-random-number-generator":["Random Number Generator - Free Online | SmartTools","Pick a random number between any two values. Free, no login."],
-"v-text-case-converter":["Text Case Converter - Free Online | SmartTools","Change text to uppercase, lowercase, title case or sentence case. Free, no login."],
-"v-about":["About SmartTools - SmartTools","SmartTools offers free, fast online calculators and utilities that work in your browser without any login."],
-"v-privacy":["Privacy Policy - SmartTools","How SmartTools handles your data, cookies and third-party services."],
-"v-contact":["Contact - SmartTools","Contact SmartTools for feedback, bug reports or tool requests."]};
-
-function route(){const id='v-'+((location.hash||'#home').slice(1)),el=document.getElementById(id)||document.getElementById('v-home');
-document.querySelectorAll('.view').forEach(v=>v.hidden=v!==el);
-const m=META[el.id];document.title=m[0];
-document.querySelector('meta[name=description]').content=m[1];scrollTo(0,0)}
-
-addEventListener('hashchange',route);route();
+// Initialize
+updateUnits();
 </script>
+
 </body>
 </html>
