@@ -43,54 +43,57 @@ h2{font-size:19px;margin:20px 0 6px;font-weight:800}
 footer{text-align:center;padding:30px 16px;margin-top:40px;border-top:1px solid var(--bd);background:rgba(20,21,26,.7)}
 footer p{margin:8px 0;color:var(--dim)}footer small{color:#777}
 
-/* ===== Rotating RGB Light Animation ===== */
-@keyframes spin {
+/* ===== Rotating RGB Light Frame ===== */
+@keyframes rgb-rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.card, .box {
+/* Container for the card (holds the rotating light and the inner box) */
+.card-wrapper, .box-wrapper {
     position: relative;
     border-radius: 16px;
-    padding: 3px;
+    overflow: hidden;
     background: transparent;
-    transition: transform 0.3s ease;
+    padding: 3px;
+    isolation: isolate;
 }
 
-.card::before, .box::before {
-    content: "";
+/* The rotating light ring */
+.card-wrapper::before, .box-wrapper::before {
+    content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: 50%;
+    left: 50%;
+    width: 150%; /* larger than the card to ensure it covers the whole frame when rotating */
+    height: 150%;
+    margin-top: -75%;
+    margin-left: -75%;
     background: conic-gradient(
-        transparent 0deg,
-        transparent 30deg,
-        #ff0033 60deg,
-        #ff6600 90deg,
-        #ffcc00 120deg,
-        #00cc66 150deg,
-        #3399ff 180deg,
-        #cc00ff 210deg,
-        transparent 240deg,
-        transparent 360deg
+        #ff0033,
+        #ff6600,
+        #ffcc00,
+        #00cc66,
+        #3399ff,
+        #cc00ff,
+        #ff0033
     );
-    animation: spin 3s linear infinite;
+    animation: rgb-rotate 3s linear infinite;
     z-index: 0;
 }
 
-.card > .in, .box > .in {
+/* The inner content box that sits on top of the light */
+.card-inner, .box-inner {
     position: relative;
     z-index: 1;
     background: var(--card);
     border-radius: 13px;
+    height: 100%;
 }
 
-.card > .in {
+.card-inner {
     padding: 18px 12px;
     text-align: center;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,7 +101,7 @@ footer p{margin:8px 0;color:var(--dim)}footer small{color:#777}
     min-height: 130px;
 }
 
-.box > .in {
+.box-inner {
     padding: 22px;
 }
 
@@ -106,7 +109,7 @@ footer p{margin:8px 0;color:var(--dim)}footer small{color:#777}
     display: block;
     text-decoration: none;
     color: var(--tx);
-    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
@@ -165,13 +168,13 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
 
 @media(max-width:600px){
   h1{font-size:23px}
-  .box>.in{padding:16px}
+  .box-inner{padding:16px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
-  .card>.in{padding:14px 8px;min-height:115px}
+  .card-inner{padding:14px 8px;min-height:115px}
   .card i{font-size:28px}
   .card h3{font-size:13px}
 }
-@media(prefers-reduced-motion:reduce){.card::before,.box::before{animation:none}}
+@media(prefers-reduced-motion:reduce){.card-wrapper::before,.box-wrapper::before{animation:none}}
 </style>
 </head>
 <body>
@@ -191,16 +194,16 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
     <p>Ten everyday tools that run in your browser. No login, no download, no cost.</p>
   </div>
   <div class="grid">
-    <a class="card" href="#word-counter"><div class="in"><i>📝</i><h3>Word Counter</h3><p>Count words, characters, sentences.</p></div></a>
-    <a class="card" href="#age-calculator"><div class="in"><i>🎂</i><h3>Age Calculator</h3><p>Exact age in years, months, days.</p></div></a>
-    <a class="card" href="#bmi-calculator"><div class="in"><i>⚖️</i><h3>BMI Calculator</h3><p>Calculate body mass index.</p></div></a>
-    <a class="card" href="#percentage-calculator"><div class="in"><i>📊</i><h3>Percentage</h3><p>What is X% of any number.</p></div></a>
-    <a class="card" href="#password-generator"><div class="in"><i>🔐</i><h3>Password Gen</h3><p>Strong random passwords.</p></div></a>
-    <a class="card" href="#qr-code-generator"><div class="in"><i>📱</i><h3>QR Code Gen</h3><p>Turn any text into QR code.</p></div></a>
-    <a class="card" href="#unit-converter"><div class="in"><i>📏</i><h3>Unit Converter</h3><p>Convert length and weight.</p></div></a>
-    <a class="card" href="#loan-calculator"><div class="in"><i>💰</i><h3>Loan Calculator</h3><p>Calculate monthly EMI.</p></div></a>
-    <a class="card" href="#random-number-generator"><div class="in"><i>🎲</i><h3>Random Num</h3><p>Pick random number in range.</p></div></a>
-    <a class="card" href="#text-case-converter"><div class="in"><i>🔤</i><h3>Text Case</h3><p>UPPER, lower, Title, Sentence.</p></div></a>
+    <a class="card" href="#word-counter"><div class="card-wrapper"><div class="card-inner"><i>📝</i><h3>Word Counter</h3><p>Count words, characters.</p></div></div></a>
+    <a class="card" href="#age-calculator"><div class="card-wrapper"><div class="card-inner"><i>🎂</i><h3>Age Calculator</h3><p>Exact age in years.</p></div></div></a>
+    <a class="card" href="#bmi-calculator"><div class="card-wrapper"><div class="card-inner"><i>⚖️</i><h3>BMI Calculator</h3><p>Body mass index.</p></div></div></a>
+    <a class="card" href="#percentage-calculator"><div class="card-wrapper"><div class="card-inner"><i>📊</i><h3>Percentage</h3><p>X% of any number.</p></div></div></a>
+    <a class="card" href="#password-generator"><div class="card-wrapper"><div class="card-inner"><i>🔐</i><h3>Password Gen</h3><p>Strong passwords.</p></div></div></a>
+    <a class="card" href="#qr-code-generator"><div class="card-wrapper"><div class="card-inner"><i>📱</i><h3>QR Code Gen</h3><p>Text into QR code.</p></div></div></a>
+    <a class="card" href="#unit-converter"><div class="card-wrapper"><div class="card-inner"><i>📏</i><h3>Unit Converter</h3><p>Length and weight.</p></div></div></a>
+    <a class="card" href="#loan-calculator"><div class="card-wrapper"><div class="card-inner"><i>💰</i><h3>Loan Calculator</h3><p>Monthly EMI.</p></div></div></a>
+    <a class="card" href="#random-number-generator"><div class="card-wrapper"><div class="card-inner"><i>🎲</i><h3>Random Num</h3><p>Pick random number.</p></div></div></a>
+    <a class="card" href="#text-case-converter"><div class="card-wrapper"><div class="card-inner"><i>🔤</i><h3>Text Case</h3><p>UPPER, lower, Title.</p></div></div></a>
   </div>
 </section>
 
@@ -209,7 +212,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Word Counter</p>
   <h1>📝 Word Counter</h1>
   <p class="lead">Count words, characters, sentences and reading time instantly.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><textarea id="wcInput" placeholder="Type or paste your text here..." oninput="countWords()"></textarea></div>
     <div class="res" id="wc">
       <div class="ri"><span>Words</span><b id="wcWords">0</b></div>
@@ -235,7 +238,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Age Calculator</p>
   <h1>🎂 Age Calculator</h1>
   <p class="lead">Find your exact age in years, months, days and hours.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="dobInput">Date of birth</label><input type="date" id="dobInput"></div>
     <button class="btn" onclick="calculateAge()">Calculate age</button>
     <div class="res" id="ageResult" hidden>
@@ -261,7 +264,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / BMI Calculator</p>
   <h1>⚖️ BMI Calculator</h1>
   <p class="lead">Calculate your body mass index from weight and height.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="bmiWeight">Weight (kg)</label><input type="number" id="bmiWeight" placeholder="e.g. 70"></div>
     <div class="fg"><label for="bmiHeight">Height (cm)</label><input type="number" id="bmiHeight" placeholder="e.g. 175"></div>
     <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
@@ -285,7 +288,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Percentage Calculator</p>
   <h1>📊 Percentage Calculator</h1>
   <p class="lead">Work out what X% of any number is.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="pctX">What is X% of Y?</label><input type="number" id="pctX" placeholder="X (percentage)"></div>
     <div class="fg"><label for="pctY">Y (number)</label><input type="number" id="pctY" placeholder="Y (number)"></div>
     <button class="btn" onclick="calculatePercentage()">Calculate</button>
@@ -306,7 +309,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Password Generator</p>
   <h1>🔐 Password Generator</h1>
   <p class="lead">Create strong random passwords with your own rules.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="pwdLength">Length: <span id="pwdLengthLabel">16</span></label><input type="range" id="pwdLength" min="8" max="32" value="16" oninput="document.getElementById('pwdLengthLabel').textContent=this.value"></div>
     <div class="chk">
       <label><input type="checkbox" id="pwdUpper" checked> Uppercase (A-Z)</label>
@@ -335,7 +338,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / QR Code Generator</p>
   <h1>📱 QR Code Generator</h1>
   <p class="lead">Turn any link or text into a QR code.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="qrInput">Text or URL</label><input type="text" id="qrInput" placeholder="https://example.com"></div>
     <button class="btn" onclick="generateQR()">Generate QR code</button>
     <div class="res" id="qrResult" hidden style="text-align:center"><div id="qrImage"></div></div>
@@ -355,7 +358,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Unit Converter</p>
   <h1>📏 Unit Converter</h1>
   <p class="lead">Convert length and weight units quickly.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="unitType">Convert</label><select id="unitType" onchange="updateUnits()"><option value="length">Length</option><option value="weight">Weight</option></select></div>
     <div class="fg"><label for="unitValue">Value</label><input type="number" id="unitValue" placeholder="Enter value"></div>
     <div class="fg"><label for="unitFrom">From</label><select id="unitFrom"></select></div>
@@ -378,7 +381,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Loan Calculator</p>
   <h1>💰 Loan Calculator</h1>
   <p class="lead">Calculate your monthly EMI, total interest and total payment.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="loanAmount">Loan amount (৳)</label><input type="number" id="loanAmount" placeholder="e.g. 100000"></div>
     <div class="fg"><label for="loanRate">Interest rate (% per year)</label><input type="number" id="loanRate" placeholder="e.g. 10"></div>
     <div class="fg"><label for="loanTerm">Loan term (months)</label><input type="number" id="loanTerm" placeholder="e.g. 12"></div>
@@ -404,7 +407,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Random Number Generator</p>
   <h1>🎲 Random Number Generator</h1>
   <p class="lead">Pick a random number between any two values.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><label for="randMin">Minimum</label><input type="number" id="randMin" value="1"></div>
     <div class="fg"><label for="randMax">Maximum</label><input type="number" id="randMax" value="100"></div>
     <button class="btn" onclick="generateRandom()">Generate</button>
@@ -425,7 +428,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac);box-
   <p class="crumb"><a href="#home">Home</a> / Text Case Converter</p>
   <h1>🔤 Text Case Converter</h1>
   <p class="lead">Change text to uppercase, lowercase, title case or sentence case.</p>
-  <div class="box"><div class="in">
+  <div class="box-wrapper"><div class="box-inner">
     <div class="fg"><textarea id="caseInput" placeholder="Type or paste text here..."></textarea></div>
     <div class="row">
       <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
